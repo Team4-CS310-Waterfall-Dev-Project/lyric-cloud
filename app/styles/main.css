@@ -55,6 +55,23 @@ body {
   font-weight: bold;
   font: black;
 }
+
+/* for share to FB button */
+.fb-share-button{
+  float: right;
+  border: 2px;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+/* for the add to WC button */
+#addToWC {
+  background-color: #6600CC;
+  padding: 5px 5px 5px 5px;
+  float: left;
+  font-weight: bold;
+  font: black;
+}
 /* for the LyricFloat title at the top */
 .jumbotron h1 {
   font-family: 'Damion';

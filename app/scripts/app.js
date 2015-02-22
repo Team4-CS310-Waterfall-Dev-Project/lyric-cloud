@@ -27,6 +27,10 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
+      .when('/word-cloud', {
+        templateUrl: 'views/word-cloud.html',
+        controller: 'WordCloudCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
