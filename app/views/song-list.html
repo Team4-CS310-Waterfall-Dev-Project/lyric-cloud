@@ -10,7 +10,24 @@
     
 		<div class="row">
 			<div id="song-list">
-      		
+				<!-- TODO change to get data from API
+				add album art and remove search -->
+      			<div ng-init="songs = [
+				  {name:'Sweet Home Alabama', occurences: 20},
+				  {name:'Sweet Caroline', occurences: 10},
+				  {name:'Get up', occurences: 2}
+				]">
+				  I have {{friends.length}} songs. They are:
+				  <input type="search" ng-model="q" placeholder="filter songs..." />
+				  <ul class="example-animate-container">
+				    <li class="animate-repeat" ng-repeat="song in songs | filter:q as results">
+				       {{word}} appears in {{song.name}}  {{song.occurences}} times.
+				    </li>
+				    <li class="animate-repeat" ng-if="results.length == 0">
+				      <strong>No results found...</strong>
+				    </li>
+				  </ul>
+				</div>
     		</div>
 		</div>
     	

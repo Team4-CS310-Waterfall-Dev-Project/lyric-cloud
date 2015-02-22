@@ -31,12 +31,6 @@ body {
   padding-bottom: 19px;
 }
 
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-}
-
 .container-narrow > hr {
   margin: 30px 0;
 }
@@ -76,11 +70,10 @@ body {
 .jumbotron h1 {
   font-family: 'Damion';
   font-size: 60px;
-  font-style: bold;
   font-variant: normal;
   font-weight: 500;
   line-height: 26px;
-  padding: 20px 20px 50px 20px;
+  padding: 20px 20px 20px 20px;
 }
 
 /* for the WordCloud padding */
@@ -117,6 +110,10 @@ body {
   color: black;
 }
 
+#song-list{
+  margin: 40px;
+}
+
 
 
 /* Responsive: Portrait tablets and up */
@@ -131,10 +128,6 @@ body {
   .footer {
     padding-left: 0;
     padding-right: 0;
-  }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
   }
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
