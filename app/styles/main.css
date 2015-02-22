@@ -44,12 +44,16 @@ body {
 /* Main marketing message and sign up button */
 .jumbotron {
   text-align: center;
-  border-bottom: 1px solid #e5e5e5;
   background-color: #666666;
 }
+
+/* for the submit button */
 .jumbotron .btn {
-  font-size: 21px;
-  padding: 14px 24px;
+  background-color: #6600CC;
+  padding: 5px 5px 5px 5px;
+  float: right;
+  font-weight: bold;
+  font: black;
 }
 /* for the LyricFloat title at the top */
 .jumbotron h1 {
@@ -68,21 +72,21 @@ body {
   padding-top: 100px;
 }
 
+/* for in between the input box and buttons */
+#buttons{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 /* for the autocomplete box purple border */
 #topic_title{
-  min-width: 300px;
+  width: 300px;
   border-color: #6600CC;
   border-width: 5px;
   padding: 10px 10px 10px 10px;
 }
 
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-}
-.marketing p + h4 {
-  margin-top: 28px;
-}
+
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
