@@ -58,7 +58,22 @@ body {
   font-style: bold;
   font-variant: normal;
   font-weight: 500;
-  line-height: 26.3999996185303px;
+  line-height: 26px;
+  padding: 20px 20px 50px 20px;
+}
+
+/* for the WordCloud padding */
+#wordCloud {
+  padding-bottom: 100px;
+  padding-top: 100px;
+}
+
+/* for the autocomplete box purple border */
+#topic_title{
+  min-width: 300px;
+  border-color: #6600CC;
+  border-width: 5px;
+  padding: 10px 10px 10px 10px;
 }
 
 /* Supporting marketing content */
