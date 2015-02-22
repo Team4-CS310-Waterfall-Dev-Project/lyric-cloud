@@ -103,6 +103,20 @@ body {
   padding: 10px 10px 10px 10px;
 }
 
+/* for the title on the song list page */
+#title{
+  float: left;
+}
+
+/* for the back button on the song list page */
+.backBTN{
+  background-color: #6600CC;
+  padding: 5px 5px 5px 5px;
+  float: left;
+  font-weight: bold;
+  color: black;
+}
+
 
 
 /* Responsive: Portrait tablets and up */

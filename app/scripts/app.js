@@ -31,6 +31,10 @@ angular
         templateUrl: 'views/word-cloud.html',
         controller: 'WordCloudCtrl'
       })
+      .when('/song-list', {
+        templateUrl: 'views/song-list.html',
+        controller: 'SongListCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

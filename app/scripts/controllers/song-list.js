@@ -2,17 +2,21 @@
 
 /**
  * @ngdoc function
- * @name lyricCloudApp.controller:WordCloudCtrl
+ * @name lyricCloudApp.controller:SongListCtrl
  * @description
- * # WordCloudCtrl
+ * # SongListCtrl
  * Controller of the lyricCloudApp
  */
 angular.module('lyricCloudApp')
-    .controller('WordCloudCtrl', function($scope) {
+    .controller('SongListCtrl', function($scope, $location) {
         $scope.awesomeThings = [
             'HTML5 Boilerplate',
             'AngularJS',
             'Karma'
         ];
+
+        $scope.goBack = function() {
+            $location.path('/word-cloud/');
+        };
 
     });
