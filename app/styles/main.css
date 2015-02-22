@@ -53,7 +53,7 @@ body {
   padding: 5px 5px 5px 5px;
   float: right;
   font-weight: bold;
-  font: black;
+  color: black;
 }
 
 /* for share to FB button */
@@ -70,7 +70,7 @@ body {
   padding: 5px 5px 5px 5px;
   float: left;
   font-weight: bold;
-  font: black;
+  color: black;
 }
 /* for the LyricFloat title at the top */
 .jumbotron h1 {
