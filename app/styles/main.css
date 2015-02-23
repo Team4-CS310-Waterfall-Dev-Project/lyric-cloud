@@ -43,7 +43,7 @@ body {
 
 /* for the submit button */
 .jumbotron .btn {
-  background-color: #6600CC;
+  background-color: #59199A;
   padding: 5px 5px 5px 5px;
   float: right;
   font-weight: bold;
@@ -53,14 +53,15 @@ body {
 /* for share to FB button */
 .fb-share-button{
   float: right;
+  padding: 5px 5px 5px 5px;
   border: 2px;
   margin-top: 5px;
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 /* for the add to WC button */
 #addToWC {
-  background-color: #6600CC;
+  background-color: #59199A;
   padding: 5px 5px 5px 5px;
   float: left;
   font-weight: bold;
@@ -91,7 +92,7 @@ body {
 /* for the autocomplete box purple border */
 #topic_title{
   width: 300px;
-  border-color: #6600CC;
+  border-color: #59199A;
   border-width: 5px;
   padding: 10px 10px 10px 10px;
 }
@@ -103,11 +104,12 @@ body {
 
 /* for the back button on the song list page */
 .backBTN{
-  background-color: #6600CC;
+  background-color: #59199A;
   padding: 5px 5px 5px 5px;
   float: left;
   font-weight: bold;
   color: black;
+  margin: 10px;
 }
 
 #song-list{
