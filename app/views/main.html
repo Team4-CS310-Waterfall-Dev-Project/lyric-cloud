@@ -8,12 +8,24 @@
     </div>
 
     <div id="autocompleteBox">
-      <input type="text" id="topic_title" value="Enter Artist's Name">
+      <input type="text" id="autocomplete" value="Enter Artist's Name">
+       <script>
+      //   $("#autocomplete").autocomplete({
+      //       source: [ "c++", "java", "php", "coldfusion", "javascript", "asp", "ruby" ]
+
+      //       // source: "search.php",
+      //       // minLength: 2, //search after two characters
+      //       // select: function(event, ui) {
+      //       //     //do something
+
+      //       // }
+      //   });
+       </script>
       <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6">
           <div id="buttons">
-            <button type="button" class="btn btn-lg btn-success" ng-href="#/"> Submit</button>
+            <button type="button" class="btn btn-lg" ng-click="displayWordCloud()"> Submit </button>
           </div>
         </div>
         <div class="col-md-3"></div>
