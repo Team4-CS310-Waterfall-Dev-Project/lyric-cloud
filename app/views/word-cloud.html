@@ -8,12 +8,14 @@
     </div>
 
     <div id="autocompleteBox">
-      <input type="text" id="topic_title" value="Enter Artist's Name">
+      <input type="text" id="topic_title" value={{artistName}} ng-model="newartist">
       <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6">
           <div id="buttons">
-            <button type="button" class="btn btn-lg " ng-href="#/word-cloud/"> Submit </button>
+            <!-- TODO change to ng-click and pass the data from the input box to js to pass to php -->
+            <button type="button" class="btn btn-lg " ng-href="#/word-cloud/" ng-click="addArtist(artistName)"> Submit </button>
+
             <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button"></div>
             <button type="button" id="addToWC"> Add to Cloud </button>
           </div>

@@ -8,16 +8,18 @@
  * Controller of the lyricCloudApp
  */
 angular.module('lyricCloudApp')
-    .controller('WordCloudCtrl', function($scope, $location) {
-        $scope.awesomeThings = [
-            'HTML5 Boilerplate',
-            'AngularJS',
-            'Karma'
-        ];
+    .controller('WordCloudCtrl', function($scope, $location, $artistName) {
+            $scope.artists = [];
 
-        $scope.displayWordCloud = function() {
-            $location.path('/word-cloud/');
-        //TODO call php to display word cloud
-        };
+            $scope.displayWordCloud = function() {
+                $location.path('/word-cloud/');
+                //TODO call php to display word cloud
+            };
 
-    });
+            $scope.addArtist = function($artistName) {
+                $scope.artists.push($artistName);
+                //TODO call php to display word cloud
+            };
+        }
+
+});
