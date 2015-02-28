@@ -11,8 +11,14 @@ angular.module('lyricCloudApp')
     .controller('WordCloudCtrl', function($scope, $location, sharedProperties) {
         $scope.artists = sharedProperties.getProperty();
 
+        //called when pressing submit -- can be taken out
         $scope.displayWordCloud = function() {
             $location.path('/word-cloud/');
+        };
+
+        //called when a word is selected from the word cloud
+        $scope.displaySongList = function() {
+            $location.path('/song-list');
         };
 
         //called when the user presses submit
