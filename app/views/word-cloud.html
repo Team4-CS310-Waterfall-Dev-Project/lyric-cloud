@@ -2,9 +2,18 @@
   <div class="col-md-*">
     <h1>Lyric Float</h1>
 
-    <div id="wordCloud">
-      <label ng-repeat="word in words">
-        <input word="{{word}}" ng-click="displaySongList(word)"/>
+    <div id="wordCloud" ng-init="words = [' stop ', ' go ', ' high ', ' low ']">
+      <label ng-repeat="word in words" ng-click="displaySongList(word)">
+        <!-- TODO change to words from php word cloud --> 
+        {{word}} 
+          <!-- <ul class="example-animate-container">
+            <li class="animate-repeat">
+              
+            </li>
+            <li class="animate-repeat" ng-if="results.length == 0">
+              <strong>No results found...</strong>
+            </li>
+          </ul> -->
       </label>
 
     </div>
