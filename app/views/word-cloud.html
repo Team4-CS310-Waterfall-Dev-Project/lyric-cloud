@@ -3,7 +3,9 @@
     <h1>Lyric Float</h1>
 
     <div id="wordCloud">
-      
+      <label ng-repeat="word in words">
+        <input word="{{word}}" ng-click="displaySongList(word)"/>
+      </label>
 
     </div>
 

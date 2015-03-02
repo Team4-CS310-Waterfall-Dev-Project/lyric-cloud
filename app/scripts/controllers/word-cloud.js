@@ -10,6 +10,8 @@
 angular.module('lyricCloudApp')
     .controller('WordCloudCtrl', function($scope, $location, sharedProperties) {
         $scope.artists = sharedProperties.getProperty();
+        $scope.currentSong = sharedProperties.getCurrentSong();
+        $scope.songList = sharedProperties.getSongList();
 
         //called when pressing submit -- can be taken out
         $scope.displayWordCloud = function() {
@@ -17,8 +19,12 @@ angular.module('lyricCloudApp')
         };
 
         //called when a word is selected from the word cloud
-        $scope.displaySongList = function() {
+        $scope.displaySongList = function(word) {
+            $scope.currentSong = [word];
+            sharedProperties.setProperty($scope.currentSong);
             $location.path('/song-list');
+
+            console.log($scope.currentSong);
         };
 
         //called when the user presses submit
@@ -46,8 +52,17 @@ angular.module('lyricCloudApp')
     })
 
 .service('sharedProperties', function() {
+    //TODO change to list of artists, songs
     var property = {
         artists: 'First Artist'
+    };
+
+    var songList = {
+        songs: 'song1'
+    };
+
+    var currentSong = {
+        song: 'this song'
     };
 
     return {
@@ -56,6 +71,18 @@ angular.module('lyricCloudApp')
         },
         setProperty: function(value) {
             property = value;
+        },
+        getSongList: function() {
+            return songList;
+        },
+        setSongList: function(value) {
+            songList = value;
+        },
+        getCurrentSong: function() {
+            return currentSong;
+        },
+        setCurrentSong: function(value) {
+            currentSong = value;
         }
     };
 });

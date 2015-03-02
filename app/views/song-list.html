@@ -17,7 +17,7 @@
 				  {name:'Sweet Caroline', occurences: 10},
 				  {name:'Get up', occurences: 2}
 				]">
-				  I have {{friends.length}} songs. They are:
+				  I have {{songList.length}} songs containing {{word}}:
 				  <input type="search" ng-model="q" placeholder="filter songs..." />
 				  <ul class="example-animate-container">
 				    <li class="animate-repeat" ng-repeat="song in songs | filter:q as results">

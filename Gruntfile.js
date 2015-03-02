@@ -387,37 +387,8 @@ module.exports = function(grunt) {
                 singleRun: true
             }
         }
-
-        //added in to deploy to server
-        buildcontrol: {
-            options: {
-                dir: 'dist',
-                commit: true,
-                push: true,
-                message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
-            },
-            stage: {
-                options: {
-                    remote: 'user@curtisblackwell.com:my_repo_stage.git',
-                    branch: 'master'
-                }
-            },
-            live: {
-                options: {
-                    remote: 'user@curtisblackwell.com:my_repo_live.git',
-                    branch: 'master'
-                }
-            }
-        },
     });
 
-    //added so we can deploy on server
-    grunt.registerTask('deploy', [
-        'buildcontrol:stage'
-    ]);
-    grunt.registerTask('deploy_live', [
-        'buildcontrol:live'
-    ]);
 
     grunt.registerTask('serve', 'Compile then start a connect web server', function(target) {
         if (target === 'dist') {
