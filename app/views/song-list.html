@@ -12,12 +12,13 @@
 			<div id="song-list">
 				<!-- TODO change to get data from API
 				add album art and remove search -->
+				<!-- I have {{songList.length}} songs containing {{word}}: -->
       			<div ng-init="songs = [
 				  {name:'Sweet Home Alabama', occurences: 20},
 				  {name:'Sweet Caroline', occurences: 10},
 				  {name:'Get up', occurences: 2}
 				]">
-				  I have {{songList.length}} songs containing {{word}}:
+				  I have 3 songs containing sweet:
 				  <!-- <input type="search" ng-model="q" placeholder="filter songs..." /> -->
 				  <ul class="example-animate-container">
 				    <li class="animate-repeat" ng-repeat="song in songs | filter:q as results">

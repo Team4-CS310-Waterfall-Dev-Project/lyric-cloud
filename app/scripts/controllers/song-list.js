@@ -15,43 +15,44 @@ angular.module('lyricCloudApp')
 
 
         $scope.goBack = function() {
+
             $location.path('/word-cloud/');
         };
 
-    })
+    });
 
-.service('sharedProperties', function() {
-    //TODO change to list of artists, songs
-    var property = {
-        artists: 'First Artist'
-    };
+// .service('sharedProperties', function() {
+//     //TODO change to list of artists, songs
+//     var property = {
+//         artists: 'First Artist'
+//     };
 
-    var songList = {
-        songs: 'song1'
-    };
+//     var songList = {
+//         songs: 'song1'
+//     };
 
-    var currentSong = {
-        song: 'this song'
-    };
+//     var currentSong = {
+//         song: 'this song'
+//     };
 
-    return {
-        getProperty: function() {
-            return property;
-        },
-        setProperty: function(value) {
-            property = value;
-        },
-        getSongList: function() {
-            return songList;
-        },
-        setSongList: function(value) {
-            songList = value;
-        },
-        getCurrentSong: function() {
-            return currentSong;
-        },
-        setCurrentSong: function(value) {
-            currentSong = value;
-        }
-    };
-});
+//     return {
+//         getProperty: function() {
+//             return property;
+//         },
+//         setProperty: function(value) {
+//             property = value;
+//         },
+//         getSongList: function() {
+//             return songList;
+//         },
+//         setSongList: function(value) {
+//             songList = value;
+//         },
+//         getCurrentSong: function() {
+//             return currentSong;
+//         },
+//         setCurrentSong: function(value) {
+//             currentSong = value;
+//         }
+//     };
+// });

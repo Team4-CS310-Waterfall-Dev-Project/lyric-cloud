@@ -21,7 +21,7 @@ angular.module('lyricCloudApp')
         //called when a word is selected from the word cloud
         $scope.displaySongList = function(word) {
             $scope.currentSong = [word];
-            sharedProperties.setProperty($scope.currentSong);
+            sharedProperties.setCurrentSong($scope.currentSong);
             $location.path('/song-list');
 
             console.log($scope.currentSong);
@@ -30,7 +30,7 @@ angular.module('lyricCloudApp')
         //called when the user presses submit
         $scope.newArtist = function(artistName) {
             $scope.artists = [artistName];
-            sharedProperties.setProperty($scope.artists)
+            sharedProperties.setProperty($scope.artists);
             //TODO call php to display word cloud
 
             console.log($scope.artists);
@@ -39,7 +39,7 @@ angular.module('lyricCloudApp')
         //called when the user presses add to word cloud
         $scope.addArtist = function(artistName) {
             $scope.artists.push(artistName);
-            sharedProperties.setProperty($scope.artists)
+            sharedProperties.setProperty($scope.artists);
             //TODO call php to display word cloud
 
             //formatting for getting data from php

@@ -24,7 +24,7 @@ angular.module('lyricCloudApp')
 
             console.log($scope.artists);
             $scope.displayWordCloud();
-            sharedProperties.setProperty($scope.artists)
+            sharedProperties.setProperty($scope.artists);
             //TODO pass the artist currently being used to word-cloud
         };
     })
