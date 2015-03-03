@@ -19,40 +19,48 @@ angular.module('lyricCloudApp')
             $location.path('/word-cloud/');
         };
 
-    });
+        $scope.showLyrics = function(song) {
+            $scope.currentSong = song;
+            sharedProperties.setCurrentSong($scope.currentSong);
+            $location.path('/song-lyrics/');
 
-// .service('sharedProperties', function() {
-//     //TODO change to list of artists, songs
-//     var property = {
-//         artists: 'First Artist'
-//     };
+            console.log($scope.currentSong);
+        };
 
-//     var songList = {
-//         songs: 'song1'
-//     };
+    })
 
-//     var currentSong = {
-//         song: 'this song'
-//     };
+.service('sharedProperties', function() {
+    //TODO change to list of artists, songs
+    var property = {
+        artists: 'First Artist'
+    };
 
-//     return {
-//         getProperty: function() {
-//             return property;
-//         },
-//         setProperty: function(value) {
-//             property = value;
-//         },
-//         getSongList: function() {
-//             return songList;
-//         },
-//         setSongList: function(value) {
-//             songList = value;
-//         },
-//         getCurrentSong: function() {
-//             return currentSong;
-//         },
-//         setCurrentSong: function(value) {
-//             currentSong = value;
-//         }
-//     };
-// });
+    var songList = {
+        songs: 'song1'
+    };
+
+    var currentSong = {
+        song: 'this song'
+    };
+
+    return {
+        getProperty: function() {
+            return property;
+        },
+        setProperty: function(value) {
+            property = value;
+        },
+        getSongList: function() {
+            return songList;
+        },
+        setSongList: function(value) {
+            songList = value;
+        },
+        getCurrentSong: function() {
+            return currentSong;
+        },
+        setCurrentSong: function(value) {
+            currentSong = value;
+        }
+    };
+});

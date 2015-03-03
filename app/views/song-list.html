@@ -21,7 +21,7 @@
 				  I have 3 songs containing sweet:
 				  <!-- <input type="search" ng-model="q" placeholder="filter songs..." /> -->
 				  <ul class="example-animate-container">
-				    <li class="animate-repeat" ng-repeat="song in songs | filter:q as results">
+				    <li class="animate-repeat" ng-repeat="song in songs | filter:q as results" ng-click="showLyrics(song)">
 				       {{word}} appears in {{song.name}}  {{song.occurences}} times.
 				    </li>
 				    <li class="animate-repeat" ng-if="results.length == 0">
