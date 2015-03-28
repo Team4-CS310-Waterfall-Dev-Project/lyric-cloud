@@ -67,7 +67,7 @@ body {
   font-weight: bold;
   color: black;
 }
-/* for the LyricFloat title at the top */
+/* for the researchFloat title at the top */
 .jumbotron h1 {
   font-family: 'Damion';
   font-size: 60px;
@@ -97,12 +97,12 @@ body {
   padding: 10px 10px 10px 10px;
 }
 
-/* for the title on the song list page */
+/* for the title on the pub list page */
 #title{
   float: left;
 }
 
-/* for the back button on the song list page */
+/* for the back button on the pub list page */
 .backBTN{
   background-color: #59199A;
   padding: 5px 5px 5px 5px;
@@ -112,11 +112,11 @@ body {
   margin: 10px;
 }
 
-#song-list{
+#pub-list{
   margin: 40px;
 }
 
-#Lyrics{
+#researchs{
   margin: 30px;
 }
 

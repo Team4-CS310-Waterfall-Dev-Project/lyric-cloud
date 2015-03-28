@@ -2,16 +2,16 @@
 
 /**
  * @ngdoc function
- * @name lyricCloudApp.controller:WordCloudCtrl
+ * @name researchCloudApp.controller:WordCloudCtrl
  * @description
  * # WordCloudCtrl
- * Controller of the lyricCloudApp
+ * Controller of the researchCloudApp
  */
-angular.module('lyricCloudApp')
+angular.module('researchCloudApp')
     .controller('WordCloudCtrl', function($scope, $location, sharedProperties) {
-        $scope.artists = sharedProperties.getProperty();
-        $scope.currentSong = sharedProperties.getCurrentSong();
-        $scope.songList = sharedProperties.getSongList();
+        $scope.authors = sharedProperties.getProperty();
+        $scope.currentpub = sharedProperties.getCurrentpub();
+        $scope.pubList = sharedProperties.getpubList();
 
         //called when pressing submit -- can be taken out
         $scope.displayWordCloud = function() {
@@ -19,27 +19,27 @@ angular.module('lyricCloudApp')
         };
 
         //called when a word is selected from the word cloud
-        $scope.displaySongList = function(word) {
-            $scope.currentSong = [word];
-            sharedProperties.setCurrentSong($scope.currentSong);
-            $location.path('/song-list');
+        $scope.displaypubList = function(word) {
+            $scope.currentpub = [word];
+            sharedProperties.setCurrentpub($scope.currentpub);
+            $location.path('/pub-list');
 
-            console.log($scope.currentSong);
+            console.log($scope.currentpub);
         };
 
         //called when the user presses submit
-        $scope.newArtist = function(artistName) {
-            $scope.artists = [artistName];
-            sharedProperties.setProperty($scope.artists);
+        $scope.newauthor = function(authorName) {
+            $scope.authors = [authorName];
+            sharedProperties.setProperty($scope.authors);
             //TODO call php to display word cloud
 
-            console.log($scope.artists);
+            console.log($scope.authors);
         };
 
         //called when the user presses add to word cloud
-        $scope.addArtist = function(artistName) {
-            $scope.artists.push(artistName);
-            sharedProperties.setProperty($scope.artists);
+        $scope.addauthor = function(authorName) {
+            $scope.authors.push(authorName);
+            sharedProperties.setProperty($scope.authors);
             //TODO call php to display word cloud
 
             //formatting for getting data from php
@@ -47,22 +47,22 @@ angular.module('lyricCloudApp')
             // var phpmult = <? php echo mult(1, 2); ?> //call the php mult function
             // var phpdivide = <? php echo divide(1, 2); ?> //call the php divide function
 
-            console.log($scope.artists);
+            console.log($scope.authors);
         };
     })
 
 .service('sharedProperties', function() {
-    //TODO change to list of artists, songs
+    //TODO change to list of authors, pubs
     var property = {
-        artists: 'First Artist'
+        authors: 'First author'
     };
 
-    var songList = {
-        songs: 'song1'
+    var pubList = {
+        pubs: 'pub1'
     };
 
-    var currentSong = {
-        song: 'this song'
+    var currentpub = {
+        pub: 'this pub'
     };
 
     return {
@@ -72,17 +72,17 @@ angular.module('lyricCloudApp')
         setProperty: function(value) {
             property = value;
         },
-        getSongList: function() {
-            return songList;
+        getpubList: function() {
+            return pubList;
         },
-        setSongList: function(value) {
-            songList = value;
+        setpubList: function(value) {
+            pubList = value;
         },
-        getCurrentSong: function() {
-            return currentSong;
+        getCurrentpub: function() {
+            return currentpub;
         },
-        setCurrentSong: function(value) {
-            currentSong = value;
+        setCurrentpub: function(value) {
+            currentpub = value;
         }
     };
 });

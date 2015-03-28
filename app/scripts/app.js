@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name lyricCloudApp
+ * @name researchCloudApp
  * @description
- * # lyricCloudApp
+ * # researchCloudApp
  *
  * Main module of the application.
  */
 angular
-  .module('lyricCloudApp', [
+  .module('researchCloudApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
@@ -31,13 +31,21 @@ angular
         templateUrl: 'views/word-cloud.html',
         controller: 'WordCloudCtrl'
       })
-      .when('/song-list', {
-        templateUrl: 'views/song-list.html',
-        controller: 'SongListCtrl'
+      .when('/pub-list', {
+        templateUrl: 'views/pub-list.html',
+        controller: 'pubListCtrl'
       })
-      .when('/song-lyrics', {
-        templateUrl: 'views/song-lyrics.html',
-        controller: 'SongLyricsCtrl'
+      .when('/pub-researchs', {
+        templateUrl: 'views/pub-researchs.html',
+        controller: 'pubresearchsCtrl'
+      })
+      .when('/about', {
+        templateUrl: 'views/about.html',
+        controller: 'AboutCtrl'
+      })
+      .when('/about', {
+        templateUrl: 'views/about.html',
+        controller: 'AboutCtrl'
       })
       .otherwise({
         redirectTo: '/'

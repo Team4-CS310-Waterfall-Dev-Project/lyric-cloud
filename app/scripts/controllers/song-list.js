@@ -2,16 +2,16 @@
 
 /**
  * @ngdoc function
- * @name lyricCloudApp.controller:SongListCtrl
+ * @name researchCloudApp.controller:pubListCtrl
  * @description
- * # SongListCtrl
- * Controller of the lyricCloudApp
+ * # pubListCtrl
+ * Controller of the researchCloudApp
  */
-angular.module('lyricCloudApp')
-    .controller('SongListCtrl', function($scope, $location, sharedProperties) {
-        $scope.artists = sharedProperties.getProperty();
-        $scope.songList = sharedProperties.getSongList();
-        $scope.currentSong = sharedProperties.getCurrentSong();
+angular.module('researchCloudApp')
+    .controller('pubListCtrl', function($scope, $location, sharedProperties) {
+        $scope.authors = sharedProperties.getProperty();
+        $scope.pubList = sharedProperties.getpubList();
+        $scope.currentpub = sharedProperties.getCurrentpub();
 
 
         $scope.goBack = function() {
@@ -19,28 +19,28 @@ angular.module('lyricCloudApp')
             $location.path('/word-cloud/');
         };
 
-        $scope.showLyrics = function(song) {
-            $scope.currentSong = song;
-            sharedProperties.setCurrentSong($scope.currentSong);
-            $location.path('/song-lyrics/');
+        $scope.showresearchs = function(pub) {
+            $scope.currentpub = pub;
+            sharedProperties.setCurrentpub($scope.currentpub);
+            $location.path('/pub-researchs/');
 
-            console.log($scope.currentSong);
+            console.log($scope.currentpub);
         };
 
     })
 
 .service('sharedProperties', function() {
-    //TODO change to list of artists, songs
+    //TODO change to list of authors, pubs
     var property = {
-        artists: 'First Artist'
+        authors: 'First author'
     };
 
-    var songList = {
-        songs: 'song1'
+    var pubList = {
+        pubs: 'pub1'
     };
 
-    var currentSong = {
-        song: 'this song'
+    var currentpub = {
+        pub: 'this pub'
     };
 
     return {
@@ -50,17 +50,17 @@ angular.module('lyricCloudApp')
         setProperty: function(value) {
             property = value;
         },
-        getSongList: function() {
-            return songList;
+        getpubList: function() {
+            return pubList;
         },
-        setSongList: function(value) {
-            songList = value;
+        setpubList: function(value) {
+            pubList = value;
         },
-        getCurrentSong: function() {
-            return currentSong;
+        getCurrentpub: function() {
+            return currentpub;
         },
-        setCurrentSong: function(value) {
-            currentSong = value;
+        setCurrentpub: function(value) {
+            currentpub = value;
         }
     };
 });

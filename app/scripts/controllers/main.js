@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc function
- * @name lyricCloudApp.controller:MainCtrl
+ * @name researchCloudApp.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the lyricCloudApp
+ * Controller of the researchCloudApp
  */
-angular.module('lyricCloudApp')
+angular.module('researchCloudApp')
     .controller('MainCtrl', function($scope, $location, sharedProperties) {
-        $scope.artists = [];
+        $scope.authors = [];
 
         $scope.displayWordCloud = function() {
             $location.path('/word-cloud/');
@@ -17,21 +17,21 @@ angular.module('lyricCloudApp')
         };
 
         //called when the user presses submit
-        $scope.newArtist = function(artistName) {
-            $scope.artists = [artistName];
+        $scope.newauthor = function(authorName) {
+            $scope.authors = [authorName];
 
             //TODO call php to display word cloud
 
-            console.log($scope.artists);
+            console.log($scope.authors);
             $scope.displayWordCloud();
-            sharedProperties.setProperty($scope.artists);
-            //TODO pass the artist currently being used to word-cloud
+            sharedProperties.setProperty($scope.authors);
+            //TODO pass the author currently being used to word-cloud
         };
     })
 
 .service('sharedProperties', function() {
     var property = {
-        artists: 'First Artist'
+        authors: 'First author'
     };
 
     return {

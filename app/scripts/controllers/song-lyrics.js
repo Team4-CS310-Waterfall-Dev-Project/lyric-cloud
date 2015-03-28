@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name lyricCloudApp.controller:SongLyricsCtrl
+ * @name researchCloudApp.controller:pubresearchsCtrl
  * @description
- * # SongLyricsCtrl
- * Controller of the lyricCloudApp
+ * # pubresearchsCtrl
+ * Controller of the researchCloudApp
  */
-angular.module('lyricCloudApp')
-    .controller('SongLyricsCtrl', function($scope, $location) {
+angular.module('researchCloudApp')
+    .controller('pubresearchsCtrl', function($scope, $location) {
         $scope.awesomeThings = [
             'HTML5 Boilerplate',
             'AngularJS',
@@ -19,7 +19,7 @@ angular.module('lyricCloudApp')
             $location.path('/word-cloud/');
         };
 
-        $scope.goBackToSongs = function() {
-            $location.path('/song-list/');
+        $scope.goBackTopubs = function() {
+            $location.path('/pub-list/');
         };
     });
