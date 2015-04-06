@@ -379,26 +379,17 @@ module.exports = function(grunt) {
                 'svgmin'
             ]
         },
-	//Php grunt attempt
-	php:{
-		files:['app/php/test.php'],
-			options: {
-				
-				port: 8080,
-				keepalive: true
-			}
-		
-	},
-//end php test	
-
-        //PHP grunt attempt
+        //Php grunt attempt
         php: {
             files: ['app/php/test.php'],
             options: {
+
                 port: 8080,
                 keepalive: true
             }
+
         },
+        //end php test	
 
         // Test settings
         karma: {
@@ -409,30 +400,24 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.registerTask('phpServer', ['php']);
-
     grunt.registerTask('serve', 'Compile then start a connect web server', function(target) {
         if (target === 'dist') {
             return grunt.task.run(['build', 'connect:dist:keepalive']);
         }
-	
+
         grunt.task.run([
             'clean:server',
             'wiredep',
             'concurrent:server',
             'autoprefixer:server',
             'connect:livereload',
-<<<<<<< HEAD
             'phpServer',
-=======
-'phpTest',
->>>>>>> phpBranch
             'watch'
-		
+
         ]);
     });
-	//Php test
-	grunt.registerTask('phpTest', ['php']);
+    //Php test
+    grunt.registerTask('phpServer', ['php']);
 
     grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function(target) {
         grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');

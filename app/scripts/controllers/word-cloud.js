@@ -40,18 +40,18 @@ angular.module('researchCloudApp')
         };
 
         //called when the user presses submit
-        $scope.newauthor = function(authorName) {
-            $scope.authors = [authorName];
-            sharedProperties.setProperty($scope.authors);
+        $scope.newartist = function(artistName) {
+            $scope.artists = [artistName];
+            sharedProperties.setProperty($scope.artists);
             //TODO call php to display word cloud
 
-            console.log($scope.authors);
+            console.log($scope.artists);
         };
 
         //called when the user presses add to word cloud
-        $scope.addauthor = function(authorName) {
-            $scope.authors.push(authorName);
-            sharedProperties.setProperty($scope.authors);
+        $scope.addartist = function(artistName) {
+            $scope.artists.push(artistName);
+            sharedProperties.setProperty($scope.artists);
             //TODO call php to display word cloud
 
             //formatting for getting data from php
@@ -59,7 +59,7 @@ angular.module('researchCloudApp')
             // var phpmult = <? php echo mult(1, 2); ?> //call the php mult function
             // var phpdivide = <? php echo divide(1, 2); ?> //call the php divide function
 
-            console.log($scope.authors);
+            console.log($scope.artists);
         };
     })
 

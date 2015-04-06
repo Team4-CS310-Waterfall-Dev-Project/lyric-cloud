@@ -9,7 +9,7 @@
  */
 angular.module('researchCloudApp')
     .controller('pubListCtrl', function($scope, $location, sharedProperties) {
-        $scope.authors = sharedProperties.getProperty();
+        $scope.artists = sharedProperties.getProperty();
         $scope.pubList = sharedProperties.getpubList();
         $scope.currentpub = sharedProperties.getCurrentpub();
 
@@ -30,9 +30,9 @@ angular.module('researchCloudApp')
     })
 
 .service('sharedProperties', function() {
-    //TODO change to list of authors, pubs
+    //TODO change to list of artists, pubs
     var property = {
-        authors: 'First author'
+        artists: 'First artist'
     };
 
     var pubList = {
