@@ -10,11 +10,12 @@
 
     </div>
 
-    <div class="progress-bar row" ng-hide="wordCloudGenerated">
-      <div style="width: 5%"></div>
+    <div class="progress-bar" ng-hide="wordCloudGenerated">
+      <div style="width: 0%"></div>
     </div>
+    <div class="progress-count">0%</div>
 
-    <div id="autocompleteBox row">
+    <div id="autocompleteBox">
       <input type="text" id="topic_title" value={{authorName}} ng-model="authorName" ng-init="authorName='Enter an author'">
       <div class="row">
         <div class="col-md-3"></div>
