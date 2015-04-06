@@ -12,24 +12,22 @@ angular.module('lyricCloudApp')
         $scope.artists = sharedProperties.getProperty();
         //	$scope.word = sharedProperties2.getSomeWord();
         //        $scope.JSONvar = sharedProperties2.getSomeWord();
-        $scope.$sce = $sce;
-        $scope.renderWordCLoud = function(){
-         //   $scope.word = " ";
-          //  for ($scope.i = 0; $scope.i < sharedProperties2.getSomeWord().data.length; $scope.i++) {
-          //    $scope.word += "<span ng-click=displaypubList(" +sharedProperties2.getSomeWord().data[$scope.i].Word + ") style=\"font-size: " + sharedProperties2.getSomeWord().data[$scope.i].Size + "px;\">" + sharedProperties2.getSomeWord().data[$scope.i].Word + "</span> ";
-         // }
-         $scope.word = "<p>hello</p><br><p>hi</p>"
-          return $scope.$sce.trustAsHtml($scope.word);  
-        };
-        
-        /*
-        $scope.word = " ";
-        
+       
+      
+         $scope.word = " ";
         for ($scope.i = 0; $scope.i < sharedProperties2.getSomeWord().data.length; $scope.i++) {
             $scope.word += "<span ng-click=displaypubList(" +sharedProperties2.getSomeWord().data[$scope.i].Word + ") style=\"font-size: " + sharedProperties2.getSomeWord().data[$scope.i].Size + "px;\">" + sharedProperties2.getSomeWord().data[$scope.i].Word + "</span> ";
           }
         $scope.word += " ";
-*/
+         $scope.wordCloudStuff = function(){
+          //  for ($scope.i = 0; $scope.i < sharedProperties2.getSomeWord().data.length; $scope.i++) {
+          //    $scope.word += "<span ng-click=displaypubList(" +sharedProperties2.getSomeWord().data[$scope.i].Word + ") style=\"font-size: " + sharedProperties2.getSomeWord().data[$scope.i].Size + "px;\">" + sharedProperties2.getSomeWord().data[$scope.i].Word + "</span> ";
+         // }
+        // $scope.word = "<p>hello</p>";
+        //  return $scope.$sce.trustAsHtml($scope.word);  
+         return $sce.trustAsHtml($scope.word);  
+        };
+  
         //called when pressing submit -- can be taken out
         $scope.displayWordCloud = function() {
             $location.path('/word-cloud/');
@@ -67,7 +65,16 @@ angular.module('lyricCloudApp')
             console.log($scope.artists);
         };
     })
-
+.directive('dir', function($compile, $parse){
+        return{
+             link: function(scope, element, attr){
+                scope.$watch(attr.content, function(){
+                    element.html($parse(attr.contents)(scope));
+                    $compile(element.contents())(scope);
+                }, true);
+            }
+        }
+    })
 .service('sharedProperties', function() {
     //TODO change to list of artists, songs
     var property = 'First Artist';

@@ -1,10 +1,12 @@
 <div class="jumbotron">
   <div class="col-md-*">
     <h1>Research Word Cloud</h1>
-    <div id="wordCloud" >
-         {{word}}
+    <div id="wordCloud"  ng-bind-html="wordCloudStuff()">
+         <!--{{word}}-->
     </div>
-
+    <div>
+    <span ng-click=displaypubList(hello)>hello </span>
+    </div>
     <div id="autocompleteBox">
       <input type="text" id="topic_title" value={{artistName}} ng-model="artistName" ng-init="artistName='Enter an artist'">
       <div class="row">
