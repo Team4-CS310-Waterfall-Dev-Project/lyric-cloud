@@ -13,14 +13,15 @@ angular.module('lyricCloudApp')
         //	$scope.word = sharedProperties2.getSomeWord();
         //        $scope.JSONvar = sharedProperties2.getSomeWord();
 
-        $scope.word = "<html><div> ";
+        $scope.word = " ";
         for ($scope.i = 0; $scope.i < sharedProperties2.getSomeWord().data.length; $scope.i++) {
             //$scope.font_size = sharedProperties2.getSomeWord().data[$scope.i ].Size;
-            $scope.word += "<span style=\"font-size: " + sharedProperties2.getSomeWord().data[$scope.i].Size + "px;\">" + sharedProperties2.getSomeWord().data[$scope.i].Word + "</span> ";
+            $scope.word += "<span ng-click=displaypubList(" +sharedProperties2.getSomeWord().data[$scope.i].Word + ") style=\"font-size: " + sharedProperties2.getSomeWord().data[$scope.i].Size + "px;\">" + sharedProperties2.getSomeWord().data[$scope.i].Word + "</span> ";
             //$scope.word += sharedProperties2.getSomeWord().data[$scope.i ].Word + " "+ sharedProperties2.getSomeWord().data[$scope.i ].Size;
             //$scope.word = $scope.testWord + " ";
+        console.log(sharedProperties2.getSomeWord().data[$scope.i].Size );
         }
-        $scope.word += "</div></html>";
+        $scope.word += " ";
 
         //called when pressing submit -- can be taken out
         $scope.displayWordCloud = function() {
