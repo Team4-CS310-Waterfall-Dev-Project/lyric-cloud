@@ -5,7 +5,7 @@ $ojbData = json_decode($data);
 @$searchQuery = $ojbData->scholar;
 #$searchQuery = "java";
 
-$scholarRequest = "http://ieeexplore.ieee.org/gateway/ipsSearch.jsp?querytext=(java OR C++)";
+$scholarRequest = "http://ieeexplore.ieee.org/gateway/ipsSearch.jsp?querytext=". $searchQuery;
 
 
 //List of some stop words - not FINAL
