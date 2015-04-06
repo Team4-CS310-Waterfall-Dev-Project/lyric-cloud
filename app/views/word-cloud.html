@@ -1,13 +1,14 @@
 <div class="jumbotron">
   <div class="col-md-*">
-    <h1>Research Float</h1>
+    <h1>Research Word Cloud</h1>
 
-    <div id="wordCloud" ng-init="words = [' stop ', ' go ', ' high ', ' low ']">
+    <div id="wordCloud" ng-init="words = [' java ', ' javascript ', ' C ', ' python ']">
       <label ng-repeat="word in words" ng-click="displaypubList(word)">
         <!-- TODO change to words from php word cloud --> 
         {{word}} 
-        <!-- TODO make different colors sizes and rotations --> 
       </label>
+
+
 
     </div>
 

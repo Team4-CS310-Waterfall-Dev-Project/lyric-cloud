@@ -3,7 +3,7 @@
 
 		<div class="row">
 			<div id="title">
-  				<h1>research Float</h1>
+  				<h1>Research Publications</h1>
   			</div>
 		</div>
   		
@@ -14,11 +14,11 @@
 				add album art and remove search -->
 				<!-- I have {{pubList.length}} pubs containing {{word}}: -->
       			<div ng-init="pubs = [
-				  {name:'Sweet Home Alabama', occurences: 20},
-				  {name:'Sweet Caroline', occurences: 10},
-				  {name:'Get up', occurences: 2}
+				  {name:'Android Development Best Practices', occurences: 20},
+				  {name:'Server Backend Comparison', occurences: 10},
+				  {name:'Programming Language Compile Times', occurences: 2}
 				]">
-				  I have 3 pubs containing sweet:
+				  I have 3 publications containing java:
 				  <!-- <input type="search" ng-model="q" placeholder="filter pubs..." /> -->
 				  <ul class="example-animate-container">
 				    <li class="animate-repeat" ng-repeat="pub in pubs | filter:q as results" ng-click="showresearchs(pub)">
