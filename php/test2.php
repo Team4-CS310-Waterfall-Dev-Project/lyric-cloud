@@ -1,0 +1,16 @@
+<?php 
+$searchQuery = "java";
+$scholarRequest = "http://ieeexplore.ieee.org/gateway/ipsSearch.jsp?querytext=java";
+/*
+$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, $scholarRequest);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	$output = curl_exec($ch);
+	curl_close($ch);
+*/
+$output = file_get_contents($scholarRequest);
+$testing = simplexml_load_file("http://ieeexplore.ieee.org/gateway/ipsSearch.jsp?querytext=java");
+//echo $output;
+echo $testing->document[0]->rank;
+?>
+

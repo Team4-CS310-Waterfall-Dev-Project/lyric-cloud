@@ -2,9 +2,8 @@
   <div class="col-md-*">
     <h1>Lyric Float</h1>
 
-    <div id="wordCloud" >
-<!-- ng-init="words = [' stop ', ' go ', ' high ', ' low']">-->
-      <label > <!-- ng-repeat="word in words" ng-click="displaySongList(word)" -->
+    <div id="wordCloud" ng-init="words = [' stop ', ' go ', ' high ', ' low ']" ng-model="wordCLOUD">
+      <label ng-repeat="word in words" ng-click="displaySongList(word)">
         <!-- TODO change to words from php word cloud --> 
         {{word}} 
         <!-- TODO make different colors sizes and rotations --> 

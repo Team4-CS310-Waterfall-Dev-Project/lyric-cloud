@@ -34,9 +34,6 @@
         <FilesMatch "\.(gif|ico|jpe?g|png|svg|svgz|webp)$">
             SetEnvIf Origin ":" IS_CORS
             Header set Access-Control-Allow-Origin "*" env=IS_CORS
-	Header set Access-Control-Request-Headers: X-Requested-With, accept, content-type
-
-	Header set Access-Control-Allow-Methods: GET, POST
         </FilesMatch>
     </IfModule>
 </IfModule>

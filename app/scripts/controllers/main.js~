@@ -27,7 +27,7 @@ sharedProperties2.setSomeWord($scope.something);
 		//WIP	
 var config = $http({
 		method: 'POST', 
-		url: 'http://localhost:8080/app/php/wordCloud.php',
+		url: 'http://localhost:8080/app/php/test.php',
 		data: {
 		scholar: $scope.artists
 		},
