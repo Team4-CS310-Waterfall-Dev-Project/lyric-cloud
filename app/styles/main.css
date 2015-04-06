@@ -50,13 +50,15 @@ body {
   color: black;
 }
 
-/* for share to FB button */
-.fb-share-button{
-  float: right;
-  padding: 5px 5px 5px 5px;
-  border: 2px;
-  margin-top: 5px;
-  margin-right: 20px;
+/* for progress bar */
+.progress-bar {
+    width: 300px;
+    height: 20px;
+    border: 1px solid #000;
+}
+.progress-bar > div {
+    height: 100%;
+    background-color: #0F0;
 }
 
 /* for the add to WC button */
