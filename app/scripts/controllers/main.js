@@ -10,6 +10,7 @@
 angular.module('lyricCloudApp')
     .controller('MainCtrl', function($scope, $http, $location, sharedProperties, sharedProperties2) {
         $scope.artists = "";
+        $scope.wordCloudGenerating = false;
         $scope.something = [];
         $scope.$watch('something', function(newVal, oldVal) {
             if (newVal === oldVal) return;
@@ -23,7 +24,10 @@ angular.module('lyricCloudApp')
         //called when the user presses submit
         $scope.newArtist = function(artistName) {
             $scope.artists = artistName;
-            //TODO call php to display word cloud
+
+            //change boolean to display progress bar
+            $scope.wordCloudGenerating = true;
+
             //WIP	
             var config = $http({
                 method: 'POST',
