@@ -3,8 +3,12 @@
     <h1>Research Word Cloud</h1>
 
     <div id="wordCloud">
-      
 
+      <div class="progress-bar" ng-show="wordCloudGenerating">
+        <div style="width: 0%"></div>
+      </div>
+      <div class="progress-count" ng-show="wordCloudGenerating">0%</div>
+      
     </div>
 
     <div id="autocompleteBox">
