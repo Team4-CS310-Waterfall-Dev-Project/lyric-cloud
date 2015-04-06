@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name researchCloudApp.controller:WordCloudCtrl
+ * @name lyricCloudApp.controller:WordCloudCtrl
  * @description
  * # WordCloudCtrl
- * Controller of the researchCloudApp
+ * Controller of the lyricCloudApp
  */
-angular.module('researchCloudApp')
+angular.module('lyricCloudApp')
     .controller('WordCloudCtrl', function($scope, $location, sharedProperties, sharedProperties2) {
         $scope.artists = sharedProperties.getProperty();
         $scope.currentSong = sharedProperties.getCurrentSong();	

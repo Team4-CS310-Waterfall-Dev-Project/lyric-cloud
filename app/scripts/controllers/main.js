@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name researchCloudApp.controller:MainCtrl
+ * @name lyricCloudApp.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the researchCloudApp
+ * Controller of the lyricCloudApp
  */
-angular.module('researchCloudApp')
+angular.module('lyricCloudApp')
     .controller('MainCtrl', function($scope, $http, $location, sharedProperties, sharedProperties2) {
         $scope.artists = "";
         $scope.something = [];
@@ -41,12 +41,8 @@ angular.module('researchCloudApp')
             //sharedProperties2.setSomeWord(data);
             //})
             .then(function(response) {
-                something = $scope.something = response.data;
-            })
-                .error(function(data, status, statusText, headers, config) {
-                    alert("Is of not workings: " + status);
-                    sharedProperties2.setSomeWord('failure');
-                });
+                $scope.something = response.data;
+            });
             /*
 		$http.post("localhost:8080/test.php",{"data" : $scope.artistName}).success(function(data, status){
 	$scope.result = data;

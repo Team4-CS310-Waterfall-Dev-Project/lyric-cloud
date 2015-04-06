@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name researchCloudApp.controller:pubresearchsCtrl
+ * @name lyricCloudApp.controller:pubresearchsCtrl
  * @description
  * # pubresearchsCtrl
- * Controller of the researchCloudApp
+ * Controller of the lyricCloudApp
  */
-angular.module('researchCloudApp')
+angular.module('lyricCloudApp')
     .controller('pubresearchsCtrl', function($scope, $location) {
 
         $scope.goBack = function() {

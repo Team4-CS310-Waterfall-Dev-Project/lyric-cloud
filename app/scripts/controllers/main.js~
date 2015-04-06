@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name researchCloudApp.controller:MainCtrl
+ * @name lyricCloudApp.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the researchCloudApp
+ * Controller of the lyricCloudApp
  */
-angular.module('researchCloudApp')
+angular.module('lyricCloudApp')
     .controller('MainCtrl', function($scope, $http, $location, sharedProperties, sharedProperties2) {
         $scope.artists = "";
 $scope.something = [];

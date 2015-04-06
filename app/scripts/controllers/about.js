@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name researchCloudApp.controller:AboutCtrl
+ * @name lyricCloudApp.controller:AboutCtrl
  * @description
  * # AboutCtrl
- * Controller of the researchCloudApp
+ * Controller of the lyricCloudApp
  */
-angular.module('researchCloudApp')
+angular.module('lyricCloudApp')
     .controller('AboutCtrl', function($scope) {
         $scope.awesomeThings = [
             'HTML5 Boilerplate',

@@ -2,11 +2,11 @@
 
 /**
  * @ngdoc directive
- * @name researchCloudApp.directive:wcProgressBar
+ * @name lyricCloudApp.directive:wcProgressBar
  * @description
  * # wcProgressBar
  */
-angular.module('researchCloudApp')
+angular.module('lyricCloudApp')
     .directive('wcProgressBar', function() {
         return {
             template: '<div></div>',

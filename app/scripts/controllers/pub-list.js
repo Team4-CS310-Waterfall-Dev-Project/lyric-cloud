@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name researchCloudApp.controller:pubListCtrl
+ * @name lyricCloudApp.controller:pubListCtrl
  * @description
  * # pubListCtrl
- * Controller of the researchCloudApp
+ * Controller of the lyricCloudApp
  */
-angular.module('researchCloudApp')
+angular.module('lyricCloudApp')
     .controller('pubListCtrl', function($scope, $location, sharedProperties) {
         $scope.artists = sharedProperties.getProperty();
         $scope.pubList = sharedProperties.getpubList();

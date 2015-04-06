@@ -2,15 +2,14 @@
 
 /**
  * @ngdoc function
- * @name researchCloudApp.controller:WordCloudCtrl
+ * @name lyricCloudApp.controller:WordCloudCtrl
  * @description
  * # WordCloudCtrl
- * Controller of the researchCloudApp
+ * Controller of the lyricCloudApp
  */
-angular.module('researchCloudApp')
+angular.module('lyricCloudApp')
     .controller('WordCloudCtrl', function($scope, $location, sharedProperties, sharedProperties2) {
         $scope.artists = sharedProperties.getProperty();
-        $scope.currentSong = sharedProperties.getCurrentSong();
         //	$scope.word = sharedProperties2.getSomeWord();
         //        $scope.JSONvar = sharedProperties2.getSomeWord();
 
@@ -22,8 +21,6 @@ angular.module('researchCloudApp')
             //$scope.word = $scope.testWord + " ";
         }
         $scope.word += "</div></html>";
-
-        $scope.songList = sharedProperties.getSongList();
 
         //called when pressing submit -- can be taken out
         $scope.displayWordCloud = function() {
