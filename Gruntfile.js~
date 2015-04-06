@@ -385,20 +385,11 @@ module.exports = function(grunt) {
 			options: {
 				
 				port: 8080,
-				keepalive: true
+				
 			}
 		
 	},
 //end php test	
-
-        //PHP grunt attempt
-        php: {
-            files: ['app/php/test.php'],
-            options: {
-                port: 8080,
-                keepalive: true
-            }
-        },
 
         // Test settings
         karma: {
@@ -409,7 +400,6 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.registerTask('phpServer', ['php']);
 
     grunt.registerTask('serve', 'Compile then start a connect web server', function(target) {
         if (target === 'dist') {
@@ -422,11 +412,7 @@ module.exports = function(grunt) {
             'concurrent:server',
             'autoprefixer:server',
             'connect:livereload',
-<<<<<<< HEAD
-            'phpServer',
-=======
 'phpTest',
->>>>>>> phpBranch
             'watch'
 		
         ]);

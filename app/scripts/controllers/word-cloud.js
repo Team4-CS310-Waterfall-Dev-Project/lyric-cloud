@@ -8,10 +8,22 @@
  * Controller of the researchCloudApp
  */
 angular.module('researchCloudApp')
-    .controller('WordCloudCtrl', function($scope, $location, sharedProperties) {
-        $scope.authors = sharedProperties.getProperty();
-        $scope.currentpub = sharedProperties.getCurrentpub();
-        $scope.pubList = sharedProperties.getpubList();
+    .controller('WordCloudCtrl', function($scope, $location, sharedProperties, sharedProperties2) {
+        $scope.artists = sharedProperties.getProperty();
+        $scope.currentSong = sharedProperties.getCurrentSong();
+        //	$scope.word = sharedProperties2.getSomeWord();
+        //        $scope.JSONvar = sharedProperties2.getSomeWord();
+
+        $scope.word = "<html><div> ";
+        for ($scope.i = 0; $scope.i < sharedProperties2.getSomeWord().data.length; $scope.i++) {
+            //$scope.font_size = sharedProperties2.getSomeWord().data[$scope.i ].Size;
+            $scope.word += "<span style=\"font-size: {" + sharedProperties2.getSomeWord().data[$scope.i].Size + "px;\">" + sharedProperties2.getSomeWord().data[$scope.i].Word + "</span> ";
+            //$scope.word += sharedProperties2.getSomeWord().data[$scope.i ].Word + " "+ sharedProperties2.getSomeWord().data[$scope.i ].Size;
+            //$scope.word = $scope.testWord + " ";
+        }
+        $scope.word += "</div></html>";
+
+        $scope.songList = sharedProperties.getSongList();
 
         //called when pressing submit -- can be taken out
         $scope.displayWordCloud = function() {
@@ -52,10 +64,8 @@ angular.module('researchCloudApp')
     })
 
 .service('sharedProperties', function() {
-    //TODO change to list of authors, pubs
-    var property = {
-        authors: 'First author'
-    };
+    //TODO change to list of artists, songs
+    var property = 'First Artist';
 
     var pubList = {
         pubs: 'pub1'
@@ -64,16 +74,16 @@ angular.module('researchCloudApp')
     var currentpub = {
         pub: 'this pub'
     };
-
+    var someWord = 'testCh';
     return {
-        getProperty: function() {
-            return property;
+        getSomeWord: function() {
+            return someWord;
         },
-        setProperty: function(value) {
-            property = value;
+        setSomeWord: function(value) {
+            someWord = value;
         },
-        getpubList: function() {
-            return pubList;
+        getSongList: function() {
+            return songList;
         },
         setpubList: function(value) {
             pubList = value;
