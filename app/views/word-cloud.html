@@ -1,9 +1,9 @@
 <div class="jumbotron">
   <div class="col-md-*">
     <h1>Research Word Cloud</h1>
-    <p id="wordCloud" ng-bind-html="renderWordCloud()">
-         
-    </p>
+    <div id="wordCloud" >
+         {{word}}
+    </div>
 
     <div class="progress-bar" ng-hide="wordCloudGenerated">
       <div style="width: 0%"></div>

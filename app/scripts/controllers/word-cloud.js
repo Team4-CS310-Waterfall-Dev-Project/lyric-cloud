@@ -12,13 +12,14 @@ angular.module('lyricCloudApp')
         $scope.artists = sharedProperties.getProperty();
         //	$scope.word = sharedProperties2.getSomeWord();
         //        $scope.JSONvar = sharedProperties2.getSomeWord();
-
+        $scope.$sce = $sce;
         $scope.renderWordCLoud = function(){
-            $scope.word = " ";
-            for ($scope.i = 0; $scope.i < sharedProperties2.getSomeWord().data.length; $scope.i++) {
-              $scope.word += "<span ng-click=displaypubList(" +sharedProperties2.getSomeWord().data[$scope.i].Word + ") style=\"font-size: " + sharedProperties2.getSomeWord().data[$scope.i].Size + "px;\">" + sharedProperties2.getSomeWord().data[$scope.i].Word + "</span> ";
-          }
-          return $sce.trustAsHtml($scope.word);  
+         //   $scope.word = " ";
+          //  for ($scope.i = 0; $scope.i < sharedProperties2.getSomeWord().data.length; $scope.i++) {
+          //    $scope.word += "<span ng-click=displaypubList(" +sharedProperties2.getSomeWord().data[$scope.i].Word + ") style=\"font-size: " + sharedProperties2.getSomeWord().data[$scope.i].Size + "px;\">" + sharedProperties2.getSomeWord().data[$scope.i].Word + "</span> ";
+         // }
+         $scope.word = "<p>hello</p><br><p>hi</p>"
+          return $scope.$sce.trustAsHtml($scope.word);  
         };
         
         /*
