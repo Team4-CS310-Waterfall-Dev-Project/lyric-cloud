@@ -8,21 +8,27 @@
  * Controller of the lyricCloudApp
  */
 angular.module('lyricCloudApp')
-    .controller('WordCloudCtrl', function($scope, $location, sharedProperties, sharedProperties2) {
+    .controller('WordCloudCtrl', function($scope, $sce, $location, sharedProperties, sharedProperties2) {
         $scope.artists = sharedProperties.getProperty();
         //	$scope.word = sharedProperties2.getSomeWord();
         //        $scope.JSONvar = sharedProperties2.getSomeWord();
 
+        $scope.renderWordCLoud = function(){
+            $scope.word = " ";
+            for ($scope.i = 0; $scope.i < sharedProperties2.getSomeWord().data.length; $scope.i++) {
+              $scope.word += "<span ng-click=displaypubList(" +sharedProperties2.getSomeWord().data[$scope.i].Word + ") style=\"font-size: " + sharedProperties2.getSomeWord().data[$scope.i].Size + "px;\">" + sharedProperties2.getSomeWord().data[$scope.i].Word + "</span> ";
+          }
+          return $sce.trustAsHtml($scope.word);  
+        };
+        
+        /*
         $scope.word = " ";
+        
         for ($scope.i = 0; $scope.i < sharedProperties2.getSomeWord().data.length; $scope.i++) {
-            //$scope.font_size = sharedProperties2.getSomeWord().data[$scope.i ].Size;
             $scope.word += "<span ng-click=displaypubList(" +sharedProperties2.getSomeWord().data[$scope.i].Word + ") style=\"font-size: " + sharedProperties2.getSomeWord().data[$scope.i].Size + "px;\">" + sharedProperties2.getSomeWord().data[$scope.i].Word + "</span> ";
-            //$scope.word += sharedProperties2.getSomeWord().data[$scope.i ].Word + " "+ sharedProperties2.getSomeWord().data[$scope.i ].Size;
-            //$scope.word = $scope.testWord + " ";
-        console.log(sharedProperties2.getSomeWord().data[$scope.i].Size );
-        }
+          }
         $scope.word += " ";
-
+*/
         //called when pressing submit -- can be taken out
         $scope.displayWordCloud = function() {
             $location.path('/word-cloud/');
