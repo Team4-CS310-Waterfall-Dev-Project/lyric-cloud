@@ -11,8 +11,12 @@
       
     </div>
 
-    <div wcAutocomplete>
-      <input type="text" class="form-control" id="topic_title" value={{artistName}} ng-model="artistName" ng-init="artistName='Enter a researcher or keyword'">
+    <div id="wcAutocomplete">
+      <div class="row">
+        <input type="text" id="topic_title" value={{artistName}} ng-model="artistName" ng-init="artistName='Enter a researcher or keyword'">
+        <div wc-autocomplete></div>
+      </div>
+      
       <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6">
@@ -22,8 +26,9 @@
         </div>
         <div class="col-md-3"></div>
       </div>
-      
     </div>
+
+
 
 
 </div>
