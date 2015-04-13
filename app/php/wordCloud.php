@@ -80,7 +80,7 @@ function word_cloud($words) {
 
     foreach ($words as $word => $frequency) {    
         if ($frequency > $tmin) {
-            $font_size = floor(  ( $fmax * ($frequency - $tmin)*5 ) / ( $tmax - $tmin )  );
+            $font_size = floor(  ( $fmax * ($frequency - $tmin)*1 ) / ( $tmax - $tmin )  );
         }
         else {
             $font_size = 0;

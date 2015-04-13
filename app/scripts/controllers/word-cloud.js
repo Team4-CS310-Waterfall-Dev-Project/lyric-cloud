@@ -37,7 +37,6 @@ angular.module('lyricCloudApp')
         //called when a word is selected from the word cloud
         $scope.displaypubList = function(word) {
             $scope.currentpub = [word];
-            alert(word);
             sharedProperties.setCurrentpub($scope.currentpub);
             $location.path('/pub-list');
 
