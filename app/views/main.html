@@ -11,20 +11,8 @@
       
     </div>
 
-    <div id="autocompleteBox">
-      <input type="text" id="topic_title" value={{artistName}} ng-model="artistName" ng-init="artistName='Enter a researcher or keyword'">
-       <script>
-      //   $("#autocomplete").autocomplete({
-      //       source: [ "c++", "java", "php", "coldfusion", "javascript", "asp", "ruby" ]
-
-      //       // source: "search.php",
-      //       // minLength: 2, //search after two characters
-      //       // select: function(event, ui) {
-      //       //     //do something
-
-      //       // }
-      //   });
-       </script>
+    <div wcAutocomplete>
+      <input type="text" class="form-control" id="topic_title" value={{artistName}} ng-model="artistName" ng-init="artistName='Enter a researcher or keyword'">
       <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6">

@@ -12,7 +12,7 @@
 
     </div>
 
-    <div id="autocompleteBox">
+    <div id="wcAutocomplete">
       <input type="text" id="topic_title" value={{artistName}} ng-model="artistName" ng-init="artistName='Enter an Artist'">
       <div class="row">
         <div class="col-md-3"></div>
