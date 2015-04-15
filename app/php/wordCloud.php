@@ -2,9 +2,8 @@
 header("Access-Control-Allow-Origin: *");
 $data = file_get_contents("php://input");
 $ojbData = json_decode($data);
-@$searchQuery = $ojbData->scholar;
-#$searchQuery = "java";
-
+@$searchQueryFull = $ojbData->scholar;
+$searchQuery = str_replace(" ", "+", $searchQueryFull);
 $scholarRequest = "http://ieeexplore.ieee.org/gateway/ipsSearch.jsp?querytext=". $searchQuery;
 
 
