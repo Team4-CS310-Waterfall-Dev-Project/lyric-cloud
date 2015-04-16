@@ -1,19 +1,10 @@
 <div class="jumbotron">
   <div class="col-md-*">
     <h1>Research Word Cloud</h1>
- <!-- <div  id="wordCloud"  ng-bind-html="wordCloudStuff()">
-         <!--{{word}}
-    </div> -->
 
-    <!-- staert test -->
     {{messageT}}
     <div otc-dynamic> </div>
-    <!-- end test-->
-    <!-- testing ng-click with span TODO clean up
-    <div>
-    <span ng-click=displaypubList(hello)>hello </span>
-    </div>
-    -->
+
     <div id="wcAutocomplete">
       <input type="text" id="topic_title" value={{artistName}} ng-model="artistName" ng-init="artistName='Enter a researcher or keyword'" ng-click="artistName=''">
         <div wc-autocomplete></div>

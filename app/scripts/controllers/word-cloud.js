@@ -24,28 +24,6 @@ angular.module('lyricCloudApp')
         }
         //alert($scope.words[0].Id+ " " + $scope.words[0].Word + " "+$scope.words[0].Size);
 
-        $scope.wordCloudStuff = function() {
-            //  for ($scope.i = 0; $scope.i < sharedProperties2.getSomeWord().data.length; $scope.i++) {
-            //    $scope.word += "<span ng-click=displaypubList(" +sharedProperties2.getSomeWord().data[$scope.i].Word + ") style=\"font-size: " + sharedProperties2.getSomeWord().data[$scope.i].Size + "px;\">" + sharedProperties2.getSomeWord().data[$scope.i].Word + "</span> ";
-            // }
-            // $scope.word = "<p>hello</p>";
-            //  return $scope.$sce.trustAsHtml($scope.word);  
-            return $sce.trustAsHtml($scope.word);
-        };
-
-        //called when pressing submit -- can be taken out
-        $scope.displayWordCloud = function() {
-            $location.path('/word-cloud/');
-        };
-
-        //called when a word is selected from the word cloud
-        $scope.displaypubList = function(word) {
-            $scope.currentpub = [word];
-            sharedProperties.setCurrentpub($scope.currentpub);
-            $location.path('/pub-list');
-
-            console.log($scope.currentpub);
-        };
 
         //called when the user presses submit
         $scope.newArtist = function(artistName) {
@@ -74,6 +52,21 @@ angular.module('lyricCloudApp')
             $scope.displayWordCloud();
             sharedProperties.setProperty($scope.artists);
             sharedProperties2.setSomeWord($scope.something);
+        };
+
+
+        //called when pressing submit -- can be taken out
+        $scope.displayWordCloud = function() {
+            $location.path('/word-cloud/');
+        };
+
+        //called when a word is selected from the word cloud
+        $scope.displaypubList = function(word) {
+            $scope.currentpub = [word];
+            sharedProperties.setCurrentpub($scope.currentpub);
+            $location.path('/pub-list');
+
+            console.log($scope.currentpub);
         };
 
     })
