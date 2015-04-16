@@ -76,19 +76,6 @@ angular.module('lyricCloudApp')
             sharedProperties2.setSomeWord($scope.something);
         };
 
-        //called when the user presses add to word cloud
-        $scope.addartist = function(artistName) {
-            $scope.artists.push(artistName);
-            sharedProperties.setProperty($scope.artists);
-            //TODO call php to display word cloud
-
-            //formatting for getting data from php
-            // var phpadd = <? php echo add(1, 2); ?> //call the php add function
-            // var phpmult = <? php echo mult(1, 2); ?> //call the php mult function
-            // var phpdivide = <? php echo divide(1, 2); ?> //call the php divide function
-
-            console.log($scope.artists);
-        };
     })
 
 .directive("otcDynamic", function($compile, sharedProperties2) {
