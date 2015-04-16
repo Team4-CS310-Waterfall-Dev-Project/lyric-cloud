@@ -22,6 +22,14 @@ angular.module('lyricCloudApp')
                 Size: sharedProperties2.getSomeWord().data[$scope.i].Size
             };
         }
+        //  $scope.something = [];
+        $scope.$watch('something', function(newVal, oldVal) {
+            if (newVal === oldVal) return;
+            console.log('setting new')
+            sharedProperties2.setSomeWord($scope.something);
+            $location.path('/word-cloud/');
+
+        });
         //alert($scope.words[0].Id+ " " + $scope.words[0].Word + " "+$scope.words[0].Size);
 
 
@@ -46,11 +54,12 @@ angular.module('lyricCloudApp')
             config
                 .then(function(response) {
                     $scope.something = response.data;
+                    $scope.apply();
                 });
 
             console.log($scope.artists);
-            sharedProperties.setProperty($scope.artists);
-            sharedProperties2.setSomeWord($scope.something);
+            //  sharedProperties.setProperty($scope.artists);
+            //    sharedProperties2.setSomeWord($scope.something);
         };
 
 

@@ -21,35 +21,35 @@ angular.module('lyricCloudApp')
             //TODO  $location.path('/word-cloud/');
             //TODO call php to display word cloud
         };
-    //called when the user presses submit
-    $scope.newArtist = function(artistName) {
-        $scope.artists = artistName;
+        //called when the user presses submit
+        $scope.newArtist = function(artistName) {
+            $scope.artists = artistName;
 
-        //change boolean to display progress bar
-        $scope.wordCloudGenerating = true;
+            //change boolean to display progress bar
+            $scope.wordCloudGenerating = true;
 
-        //WIP   
-        var config = $http({
-            method: 'POST',
-            url: 'http://localhost:8080/app/php/wordCloud.php',
-            data: {
-                scholar: $scope.artists
-            },
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            }
-        });
-
-        config
-            .then(function(response) {
-                $scope.something = response.data;
+            //WIP   
+            var config = $http({
+                method: 'POST',
+                url: 'http://localhost:8080/app/php/wordCloud.php',
+                data: {
+                    scholar: $scope.artists
+                },
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
             });
 
-        console.log($scope.artists);
-        $scope.displayWordCloud();
-        sharedProperties.setProperty($scope.artists);
-        sharedProperties2.setSomeWord($scope.something);
-    };
+            config
+                .then(function(response) {
+                    $scope.something = response.data;
+                });
+
+            console.log($scope.artists);
+            $scope.displayWordCloud();
+            sharedProperties.setProperty($scope.artists);
+            sharedProperties2.setSomeWord($scope.something);
+        };
     })
 
 .service('sharedProperties', function() {
