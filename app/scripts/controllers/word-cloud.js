@@ -8,7 +8,7 @@
  * Controller of the lyricCloudApp
  */
 angular.module('lyricCloudApp')
-    .controller('WordCloudCtrl', function($scope, $sce, $location, sharedProperties, sharedProperties2, $compile) {
+    .controller('WordCloudCtrl', function($scope, $http, $sce, $location, sharedProperties, sharedProperties2, $compile) {
         $scope.artists = sharedProperties.getProperty();
         //	$scope.word = sharedProperties2.getSomeWord();
         //        $scope.JSONvar = sharedProperties2.getSomeWord();
@@ -41,19 +41,39 @@ angular.module('lyricCloudApp')
         //called when a word is selected from the word cloud
         $scope.displaypubList = function(word) {
             $scope.currentpub = [word];
- sharedProperties.setCurrentpub($scope.currentpub);
+            sharedProperties.setCurrentpub($scope.currentpub);
             $location.path('/pub-list');
 
             console.log($scope.currentpub);
         };
 
         //called when the user presses submit
-        $scope.newartist = function(artistName) {
-            $scope.artists = [artistName];
-            sharedProperties.setProperty($scope.artists);
-            //TODO call php to display word cloud
+        $scope.newArtist = function(artistName) {
+            $scope.artists = artistName;
+
+            //change boolean to display progress bar
+            $scope.wordCloudGenerating = true;
+
+            var config = $http({
+                method: 'POST',
+                url: 'http://localhost:8080/app/php/wordCloud.php',
+                data: {
+                    scholar: $scope.artists
+                },
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            });
+
+            config
+                .then(function(response) {
+                    $scope.something = response.data;
+                });
 
             console.log($scope.artists);
+            $scope.displayWordCloud();
+            sharedProperties.setProperty($scope.artists);
+            sharedProperties2.setSomeWord($scope.something);
         };
 
         //called when the user presses add to word cloud
