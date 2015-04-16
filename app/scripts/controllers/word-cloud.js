@@ -49,16 +49,10 @@ angular.module('lyricCloudApp')
                 });
 
             console.log($scope.artists);
-            $scope.displayWordCloud();
             sharedProperties.setProperty($scope.artists);
             sharedProperties2.setSomeWord($scope.something);
         };
 
-
-        //called when pressing submit -- can be taken out
-        $scope.displayWordCloud = function() {
-            $location.path('/word-cloud/');
-        };
 
         //called when a word is selected from the word cloud
         $scope.displaypubList = function(word) {
