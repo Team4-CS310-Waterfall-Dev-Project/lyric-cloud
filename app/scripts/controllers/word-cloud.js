@@ -13,7 +13,7 @@ angular.module('lyricCloudApp')
         $scope.wordCloudGenerating = false;
         $scope.wordClicked = false;
         $scope.bar = $('.bar');
-        $scope.words = [];
+        $scope.words = new Array(10);
 
         //TODO change this to what I get from Hung
         $scope.papers = [];
@@ -41,7 +41,7 @@ angular.module('lyricCloudApp')
                 $scope.papers[j].date = sharedProperties2.getSomeWord().names[j].Date;
                 $scope.papers[j].journal = sharedProperties2.getSomeWord().names[j].Journal;
                 $scope.papers[j].conference = sharedProperties2.getSomeWord().names[j].Conference;
-                //$scope.papers[j].frequency = sharedProperties2.getSomeWord().names[j].Frequency;
+                $scope.papers[j].frequency = sharedProperties2.getSomeWord().names[j].Frequency;
             }
 
 
