@@ -10,6 +10,7 @@
 angular.module('lyricCloudApp')
     .controller('WordCloudCtrl', function($scope, $http, $sce, $location, sharedProperties, sharedProperties2, $compile) {
         $scope.artists = sharedProperties.getProperty();
+        $scope.wordCloudGenerating = false;
         //	$scope.word = sharedProperties2.getSomeWord();
         //        $scope.JSONvar = sharedProperties2.getSomeWord();
 
@@ -28,7 +29,8 @@ angular.module('lyricCloudApp')
             console.log('setting new')
             sharedProperties2.setSomeWord($scope.something);
             $location.path('/word-cloud/');
-
+            $scope.wordCloudGenerating = false;
+            console.log('wordCloudGenerating = false');
         });
         //alert($scope.words[0].Id+ " " + $scope.words[0].Word + " "+$scope.words[0].Size);
 
@@ -39,6 +41,7 @@ angular.module('lyricCloudApp')
 
             //change boolean to display progress bar
             $scope.wordCloudGenerating = true;
+            console.log('wordCloudGenerating = true');
 
             var config = $http({
                 method: 'POST',
@@ -54,7 +57,6 @@ angular.module('lyricCloudApp')
             config
                 .then(function(response) {
                     $scope.something = response.data;
-                    $scope.apply();
                 });
 
             console.log($scope.artists);

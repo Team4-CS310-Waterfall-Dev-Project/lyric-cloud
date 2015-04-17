@@ -3,7 +3,12 @@
     <h1>Research Word Cloud</h1>
 
     {{messageT}}
-    <div otc-dynamic> </div>
+    <div otc-dynamic ng-hide="wordCloudGenerating"> </div>
+
+    <div class="progress-bar" ng-show="wordCloudGenerating">
+        <div style="width: 0%"></div>
+      </div>
+    <div class="progress-count" ng-show="wordCloudGenerating">0%</div>
 
     <div id="wcAutocomplete">
       <input type="text" id="topic_title" value={{artistName}} ng-model="artistName" ng-init="artistName='Enter a researcher or keyword'" ng-click="artistName=''">
