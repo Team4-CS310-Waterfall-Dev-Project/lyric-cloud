@@ -11,6 +11,8 @@ angular.module('lyricCloudApp')
     .controller('WordCloudCtrl', function($scope, $http, $sce, $location, sharedProperties, sharedProperties2, $compile) {
         $scope.artists = sharedProperties.getProperty();
         $scope.wordCloudGenerating = false;
+        $scope.bar = $('.bar');
+        $scope.bar.width(0);
         //	$scope.word = sharedProperties2.getSomeWord();
         //        $scope.JSONvar = sharedProperties2.getSomeWord();
 
@@ -25,11 +27,16 @@ angular.module('lyricCloudApp')
         }
         $scope.$watch('something', function(newVal, oldVal) {
             if (newVal === oldVal) return;
+            $scope.resetProgressBar();
             console.log('setting new')
             sharedProperties2.setSomeWord($scope.something);
-            $location.path('/word-cloud/');
             $scope.wordCloudGenerating = false;
             console.log('wordCloudGenerating = false');
+
+            //TODO update progress bar to 100%
+
+            $location.path('/word-cloud/');
+
         });
         //alert($scope.words[0].Id+ " " + $scope.words[0].Word + " "+$scope.words[0].Size);
 
@@ -41,6 +48,8 @@ angular.module('lyricCloudApp')
             //change boolean to display progress bar
             $scope.wordCloudGenerating = true;
             console.log('wordCloudGenerating = true');
+
+            $scope.startProgressBar();
 
             var config = $http({
                 method: 'POST',
@@ -64,14 +73,35 @@ angular.module('lyricCloudApp')
         };
 
 
+        $scope.startProgressBar = function() {
+            $scope.bar.width(0);
+
+            var progress = setInterval(function() {
+
+                if ($scope.bar.width() == 400) {
+                    clearInterval(progress);
+                } else {
+                    $scope.bar.width($scope.bar.width() + 40);
+                }
+                $scope.bar.text($scope.bar.width() / 4 + "%");
+            }, 800);
+
+        };
+
+        $scope.resetProgressBar = function() {
+            $scope.bar.width(400);
+            $scope.bar.text($scope.bar.width() / 4 + "%");
+        };
+
+
         //called when a word is selected from the word cloud
         $scope.displaypubList = function(word) {
             $scope.currentpub = [word];
             sharedProperties.setCurrentpub($scope.currentpub);
-             console.log($scope.currentpub);
+            console.log($scope.currentpub);
             //$location.path('/pub-list');
             $scope.newArtist(word);
-           
+
         };
 
     })
@@ -84,7 +114,7 @@ angular.module('lyricCloudApp')
             var template = " ";
             var i = 0;
             for (i = 0; i < sharedProperties2.getSomeWord().data.length; i++) {
-                template += "<span ng-click=displaypubList(\""+ sharedProperties2.getSomeWord().data[i].Word+"\") style=\"font-size: " + sharedProperties2.getSomeWord().data[i].Size + "px;\">" + sharedProperties2.getSomeWord().data[i].Word + "</span> ";
+                template += "<span ng-click=displaypubList(\"" + sharedProperties2.getSomeWord().data[i].Word + "\") style=\"font-size: " + sharedProperties2.getSomeWord().data[i].Size + "px;\">" + sharedProperties2.getSomeWord().data[i].Word + "</span> ";
             }
             //template = "<div ng-repeat item in words> <span ng-click=displaypubList(item.Id) style=\"font-size: item.Size px\">item.Word ,"
             var linkFn = $compile(template);

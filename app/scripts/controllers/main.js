@@ -12,21 +12,23 @@ angular.module('lyricCloudApp')
         $scope.artists = "";
         $scope.wordCloudGenerating = false;
         $scope.something = [];
+        $scope.bar = $('.bar');
+        $scope.bar.width(0);
         $scope.$watch('something', function(newVal, oldVal) {
+            $scope.resetProgressBar();
+
             if (newVal === oldVal) return;
             $location.path('/word-cloud/');
             sharedProperties2.setSomeWord($scope.something);
         });
-        $scope.displayWordCloud = function() {
-            //TODO  $location.path('/word-cloud/');
-            //TODO call php to display word cloud
-        };
         //called when the user presses submit
         $scope.newArtist = function(artistName) {
             $scope.artists = artistName;
 
             //change boolean to display progress bar
             $scope.wordCloudGenerating = true;
+
+            $scope.startProgressBar();
 
             //WIP   
             var config = $http({
@@ -46,9 +48,28 @@ angular.module('lyricCloudApp')
                 });
 
             console.log($scope.artists);
-            $scope.displayWordCloud();
             sharedProperties.setProperty($scope.artists);
             sharedProperties2.setSomeWord($scope.something);
+        };
+
+        $scope.startProgressBar = function() {
+            $scope.bar.width(0);
+
+            var progress = setInterval(function() {
+
+                if ($scope.bar.width() == 400) {
+                    clearInterval(progress);
+                } else {
+                    $scope.bar.width($scope.bar.width() + 40);
+                }
+                $scope.bar.text($scope.bar.width() / 4 + "%");
+            }, 800);
+
+        };
+
+        $scope.resetProgressBar = function() {
+            $scope.bar.width(400);
+            $scope.bar.text($scope.bar.width() / 4 + "%");
         };
     })
 
