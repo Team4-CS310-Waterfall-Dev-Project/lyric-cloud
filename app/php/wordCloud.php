@@ -87,8 +87,17 @@ function word_cloud($words, $returnCloud) {
 }
 
 //
-function count_select_word(){
-
+function count_select_word($someString, $someWord){
+    $offset = 0;
+    $foundNum = 1;
+    $result = true;
+    while($result !== false && $offset < strlen($someString)){
+        $result = stripos($someString, $someWord, $offset +1);
+        if($result !== false){
+            $foundNum++;
+            $offset = $result;
+        }
+    }
 
 }
 $ch = curl_init();
@@ -116,6 +125,7 @@ for($i = 0; $i < 10; $i++){
    $journal = (string) $vname->document[$i]->publisher;
    $conf = (string) $vname->document[$i]->pubtitle;
    $theAbstract = (string) $vname->document[$i]->abstract;
+   $wFreq = count_select_word($theAbstract, $searchQueryFull);
    
     $publication = array("Title" => $tit, "Authors" => $aut->authors, "Date" => $date, "Journal" => $journal, "Conference" => $conf);
     $theCloud->names[] = $publication;
