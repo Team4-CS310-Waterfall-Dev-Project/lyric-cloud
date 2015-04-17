@@ -59,15 +59,19 @@ angular.module('lyricCloudApp')
             sharedProperties2.setSomeWord($scope.something);
             $scope.wordCloudGenerating = false;
             console.log('wordCloudGenerating = false');
-<<<<<<< HEAD
-=======
-             for (var j = 0 ; j<sharedProperties2.getSomeWord().names.length; j++ )   {
-				console.log(sharedProperties2.getSomeWord().names[j].Title );
 
-			}   
-            //TODO update progress bar to 100%
+            //populate papers table
+            for (var j = 0; j < sharedProperties2.getSomeWord().names.length; j++) {
+                console.log(sharedProperties2.getSomeWord().names[j].Title);
+                $scope.papers[j].title = sharedProperties2.getSomeWord().names[j].Title;
+                $scope.papers[j].authors = sharedProperties2.getSomeWord().names[j].Authors;
+                $scope.papers[j].date = sharedProperties2.getSomeWord().names[j].Date;
+                $scope.papers[j].journal = sharedProperties2.getSomeWord().names[j].Journal;
+                $scope.papers[j].conference = sharedProperties2.getSomeWord().names[j].Conference;
+                $scope.papers[j].frequency = sharedProperties2.getSomeWord().names[j].Frequency;
+            }
 
->>>>>>> origin/master
+
             $location.path('/word-cloud/');
 
         });
@@ -146,7 +150,7 @@ angular.module('lyricCloudApp')
                 template += "<span ng-click=displaypubList(\"" + sharedProperties2.getSomeWord().data[i].Word + "\") style=\"font-size: " + sharedProperties2.getSomeWord().data[i].Size + "px;\">" + sharedProperties2.getSomeWord().data[i].Word + "</span> ";
             }
             console.log(sharedProperties2.getSomeWord().names.length);
-           
+
             //template = "<div ng-repeat item in words> <span ng-click=displaypubList(item.Id) style=\"font-size: item.Size px\">item.Word ,"
             var linkFn = $compile(template);
             var content = linkFn(scope);

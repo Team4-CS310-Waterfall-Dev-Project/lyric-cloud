@@ -41,7 +41,7 @@
           <tr ng-repeat="paper in papers | orderBy: 'frequency'">
             <td>{{ paper.title }}</td>
             <td>{{ paper.authors }}</td>
-            <td>{{ paper.date | date:format:'medium' }}</td>
+            <td>{{ paper.date }}</td>
             <td>{{ paper.journal }}</td>
             <td>{{ paper.conference }}</td>
           </tr>
