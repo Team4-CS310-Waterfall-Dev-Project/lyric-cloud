@@ -28,9 +28,17 @@
     <!-- Title, Authors, Date, journal, conference name in table ng-repeat-->
     <div class="row" ng-show"wordClicked">
 
+    <!-- TODO change from artistName to keyword/author -->
       <h3>Papers by/about {{ artistName }}</h3>
 
         <table>
+        <tr>
+          <td>Title</td>
+          <td>Authors</td>
+          <td>Date Published</td>
+          <td>Journal</td>
+          <td>Conference</td>
+        </tr>
           <tr ng-repeat="paper in papers | orderBy: 'frequency'">
             <td>{{ paper.title }}</td>
             <td>{{ paper.authors }}</td>
