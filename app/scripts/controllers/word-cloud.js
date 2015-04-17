@@ -11,12 +11,44 @@ angular.module('lyricCloudApp')
     .controller('WordCloudCtrl', function($scope, $http, $sce, $location, sharedProperties, sharedProperties2, $compile) {
         $scope.artists = sharedProperties.getProperty();
         $scope.wordCloudGenerating = false;
+        $scope.wordClicked = false;
         $scope.bar = $('.bar');
         //	$scope.word = sharedProperties2.getSomeWord();
         //        $scope.JSONvar = sharedProperties2.getSomeWord();
 
         //working code TODO remove comments
         $scope.words = [];
+
+        //TODO change this to what I get from Hung
+        //$scope.papers = [];
+        $scope.papers = [{
+                title: 'Software Stuff',
+                authors: [
+                    'Tom', 'Dick', 'Harry'
+                ],
+                date: new Date('2014', '10', '20'),
+                journal: 'Jaba da Hut',
+                conference: 'Jabba Hungry'
+            }, {
+                title: 'Software Stuff 2',
+                authors: [
+                    'Tom', 'Dick', 'Harry'
+                ],
+                date: new Date('2014', '10', '21'),
+                journal: 'Jaba da Hut 2',
+                conference: 'Jabba Hungry 2'
+            }, {
+                title: 'Software Stuff 3',
+                authors: [
+                    'Tom 3', 'Dick 3', 'Harry 3'
+                ],
+                date: new Date('2014', '10', '22'),
+                journal: 'Jaba da Hut 3',
+                conference: 'Jabba Hungry 3'
+            }
+
+        ];
+
         for ($scope.i = 0; $scope.i < sharedProperties2.getSomeWord().data.length; $scope.i++) {
             $scope.words[$scope.words.length] = {
                 Id: $scope.i,
@@ -101,7 +133,7 @@ angular.module('lyricCloudApp')
             console.log($scope.currentpub);
             //$location.path('/pub-list');
             $scope.newArtist(word);
-
+            $scope.wordClicked = true; //shows the table at the bottom
         };
 
     })

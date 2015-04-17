@@ -25,10 +25,8 @@
       </div>
       
     </div>
-
-
     <!-- Title, Authors, Date, journal, conference name in table ng-repeat-->
-    <div class="row">
+    <div class="row" ng-show"wordClicked">
 
       <h3>Papers by/about {{ artistName }}</h3>
 
@@ -36,7 +34,7 @@
           <tr ng-repeat="paper in papers | orderBy: 'frequency'">
             <td>{{ paper.title }}</td>
             <td>{{ paper.authors }}</td>
-            <td>{{ paper.date || format:'medium' }}</td>
+            <td>{{ paper.date | date:format:'medium' }}</td>
             <td>{{ paper.journal }}</td>
             <td>{{ paper.conference }}</td>
           </tr>
