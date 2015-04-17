@@ -16,34 +16,7 @@ angular.module('lyricCloudApp')
         $scope.words = [];
 
         //TODO change this to what I get from Hung
-        //$scope.papers = [];
-        $scope.papers = [{
-                title: 'Software Stuff',
-                authors: [
-                    'Tom', 'Dick', 'Harry'
-                ],
-                date: new Date('2014', '10', '20'),
-                journal: 'Jaba da Hut',
-                conference: 'Jabba Hungry'
-            }, {
-                title: 'Software Stuff 2',
-                authors: [
-                    'Tom', 'Dick', 'Harry'
-                ],
-                date: new Date('2014', '10', '21'),
-                journal: 'Jaba da Hut 2',
-                conference: 'Jabba Hungry 2'
-            }, {
-                title: 'Software Stuff 3',
-                authors: [
-                    'Tom 3', 'Dick 3', 'Harry 3'
-                ],
-                date: new Date('2014', '10', '22'),
-                journal: 'Jaba da Hut 3',
-                conference: 'Jabba Hungry 3'
-            }
-
-        ];
+        $scope.papers = [];
 
         for ($scope.i = 0; $scope.i < sharedProperties2.getSomeWord().data.length; $scope.i++) {
             $scope.words[$scope.words.length] = {
@@ -68,7 +41,7 @@ angular.module('lyricCloudApp')
                 $scope.papers[j].date = sharedProperties2.getSomeWord().names[j].Date;
                 $scope.papers[j].journal = sharedProperties2.getSomeWord().names[j].Journal;
                 $scope.papers[j].conference = sharedProperties2.getSomeWord().names[j].Conference;
-                $scope.papers[j].frequency = sharedProperties2.getSomeWord().names[j].Frequency;
+                //$scope.papers[j].frequency = sharedProperties2.getSomeWord().names[j].Frequency;
             }
 
 
