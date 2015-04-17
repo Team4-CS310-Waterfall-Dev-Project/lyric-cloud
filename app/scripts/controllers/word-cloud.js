@@ -54,7 +54,6 @@ angular.module('lyricCloudApp')
             config
                 .then(function(response) {
                     $scope.something = response.data;
-                    $scope.apply();
                 });
 
             console.log($scope.artists);

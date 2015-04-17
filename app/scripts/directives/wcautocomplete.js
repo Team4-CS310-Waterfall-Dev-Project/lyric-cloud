@@ -37,6 +37,7 @@ angular.module('lyricCloudApp')
                         'Ruby',
                         'Scala',
                         'Scheme'
+
                     ];
 
                     $('#topic_title').autocomplete({
