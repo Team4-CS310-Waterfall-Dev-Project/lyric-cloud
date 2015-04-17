@@ -13,34 +13,28 @@ $stopwords = explode(",", $stopwords);
 
 //Start of Malvika's function
 function ParseXML($xml) {
-// create the parser object
-if (!($parser = xml_parser_create())) {
-    print "cannot create parser!";
-    exit();
-}
- 
-// error for no XML
-if ($xml == "") {
-    print "No XML Was found!";
-    exit();
-}
- 
-xml_parse_into_struct($parser, trim($xml), $structure, $index);
-xml_parser_free($parser);
- 
-// put xml in array
-$found = "";
-
-
-
-foreach($structure as $s)
-{
-      if ($s["tag"] == "DOCUMENT") {
-           $found += $s['value'];
-      }
-}
-//return lyrics
-return $found;
+    // create the parser object
+    if (!($parser = xml_parser_create())) {
+        print "cannot create parser!";
+        exit();
+    }
+    // error for no XML
+    if ($xml == "") {
+        print "No XML Was found!";
+        exit();
+    }
+    xml_parse_into_struct($parser, trim($xml), $structure, $index);
+    xml_parser_free($parser);
+    // put xml in array
+    $found = "";
+    foreach($structure as $s)
+    {
+          if ($s["tag"] == "DOCUMENT") {
+               $found += $s['value'];
+          }
+    }
+    //return lyrics
+    return $found;
 }
  //End of Malvika's function
 
@@ -68,7 +62,7 @@ function wordFreq($words) {
     return $frequency_list;
 }
 
-function word_cloud($words) {
+function word_cloud($words, $returnCloud) {
    #$returnCloud = array();
 	$returnCloud = new stdClass();
 	$returnCloud->data = array();    
@@ -94,35 +88,11 @@ function word_cloud($words) {
     return $returnCloud;   
 }
 
-/*$words = array();
-$xmlFiles = array();
-for ($i = 0; $i <  1; $i++){
-	$songName = $jsonRetrieve["response"]["hits"][$i]["result"]["title"];
+//
+function count_select_word(){
 
 
-$params = array(
-      'artist' => $anChartLyrics,
-      'song' => $songName,
-);
-$encoded_params = array();
-foreach ($params as $k => $v){
-     $encoded_params[] = urlencode($k).'='.urlencode($v);
 }
-$url = "http://api.chartlyrics.com/apiv1.asmx/SearchLyricDirect?".implode('&', $encoded_params);
-
-
- $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		$output = false;
-        $output = curl_exec($ch);
-        curl_close($ch);   
- 
-//$context = stream_context_create(array('http' => array('header'=>'Connection: close'))); 
-//$GetLyricResult = file_get_contents($url, false,$context);
-$xmlFiles[] = $output;
-}*/
-
 $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $scholarRequest);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -134,8 +104,12 @@ $whatever = "";
 
 $vname = simplexml_load_file($scholarRequest);
 
+$theCloud = new stdClass();
+    $theCloud->data = array();    
+    $theCloud->list = array();
+
 //TODO
-for($i = 0; $i < 5; $i++){
+for($i = 0; $i < 10; $i++){
 $whatever .= " " . $vname->document[$i]->abstract;
 
 }
@@ -149,7 +123,7 @@ $words = str_word_count($whatever, 1);
     $unique_words = count( array_unique($words) ); 
     $words_filtered = stopWordFilter($words, $stopwords);
     $word_frequency = wordFreq($words_filtered); 
-    $word_c = word_cloud($word_frequency);
+    $word_c = word_cloud($word_frequency, $theCloud);
 
  echo json_encode($word_c); 
 
