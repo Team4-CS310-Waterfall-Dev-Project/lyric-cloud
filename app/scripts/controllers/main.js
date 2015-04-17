@@ -52,25 +52,24 @@ angular.module('lyricCloudApp')
         };
 
         $scope.startProgressBar = function() {
-            //width is 660
+            //width is 618
             $scope.bar.width(0);
-            $scope.bar
 
             var progress = setInterval(function() {
 
-                if ($scope.bar.width() > 660) {
+                if ($scope.bar.width() >= 600) {
                     clearInterval(progress);
                 } else {
-                    $scope.bar.width($scope.bar.width() + 66);
+                    $scope.bar.width($scope.bar.width() + 60);
                 }
-                $scope.bar.text($scope.bar.width() / 6.6 + "%");
+                $scope.bar.text($scope.bar.width() / 6 + "%");
             }, 800);
 
         };
 
         $scope.resetProgressBar = function() {
-            $scope.bar.width(0);
-            $scope.bar.text('0%');
+            $scope.bar.width(600);
+            $scope.bar.text('100%');
         };
     })
 
