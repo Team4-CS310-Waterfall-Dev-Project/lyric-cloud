@@ -118,7 +118,7 @@ for($i = 0; $i < 10; $i++){
    $theAbstract = (string) $vname->document[$i]->abstract;
    
     $publication = array("Title" => $tit, "Authors" => $aut->authors, "Date" => $date, "Journal" => $journal, "Conference" => $conf);
-    $theCloud->list[] = $publication;
+    $theCloud->names[] = $publication;
 }
 
 $words = str_word_count($whatever, 1);
