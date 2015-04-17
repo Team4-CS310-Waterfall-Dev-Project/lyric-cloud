@@ -23,7 +23,6 @@ angular.module('lyricCloudApp')
                 Size: sharedProperties2.getSomeWord().data[$scope.i].Size
             };
         }
-        //  $scope.something = [];
         $scope.$watch('something', function(newVal, oldVal) {
             if (newVal === oldVal) return;
             console.log('setting new')
