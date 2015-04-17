@@ -64,8 +64,6 @@ function wordFreq($words) {
 
 function word_cloud($words, $returnCloud) {
    #$returnCloud = array();
-	$returnCloud = new stdClass();
-	$returnCloud->data = array();    
 	$fmax = 120; 
     $fmin = 8; 
     $tmin = min($words); 
@@ -106,12 +104,20 @@ $vname = simplexml_load_file($scholarRequest);
 
 $theCloud = new stdClass();
     $theCloud->data = array();    
-    $theCloud->list = array();
+    $theCloud->names = array();
 
 //TODO
 for($i = 0; $i < 10; $i++){
+
     $whatever .= " " . $vname->document[$i]->abstract;
-    $publication = array("Title" => $vname->document[$i]->title, "Authors" => $vname->document[$i]->authors, "Date" => $vname->document[$i]->py, "Journal" => $vname->document[$i]->publisher, "Conference" => $vname->document[$i]->pubtitle);
+   $tit = (string) $vname->document[$i]->title;
+   $aut = (string) $vname->document[$i]->authors;
+   $date = (string) $vname->document[$i]->py;
+   $journal = (string) $vname->document[$i]->publisher;
+   $conf = (string) $vname->document[$i]->pubtitle;
+   $theAbstract = (string) $vname->document[$i]->abstract;
+   
+    $publication = array("Title" => $tit, "Authors" => $aut->authors, "Date" => $date, "Journal" => $journal, "Conference" => $conf);
     $theCloud->list[] = $publication;
 }
 
