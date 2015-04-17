@@ -12,7 +12,6 @@ angular.module('lyricCloudApp')
         $scope.artists = sharedProperties.getProperty();
         $scope.wordCloudGenerating = false;
         $scope.bar = $('.bar');
-        $scope.bar.width(0);
         //	$scope.word = sharedProperties2.getSomeWord();
         //        $scope.JSONvar = sharedProperties2.getSomeWord();
 
@@ -74,23 +73,24 @@ angular.module('lyricCloudApp')
 
 
         $scope.startProgressBar = function() {
+            //width is 618
             $scope.bar.width(0);
 
             var progress = setInterval(function() {
 
-                if ($scope.bar.width() == 400) {
+                if ($scope.bar.width() >= 600) {
                     clearInterval(progress);
                 } else {
-                    $scope.bar.width($scope.bar.width() + 40);
+                    $scope.bar.width($scope.bar.width() + 60);
                 }
-                $scope.bar.text($scope.bar.width() / 4 + "%");
+                $scope.bar.text($scope.bar.width() / 6 + "%");
             }, 800);
 
         };
 
         $scope.resetProgressBar = function() {
-            $scope.bar.width(400);
-            $scope.bar.text($scope.bar.width() / 4 + "%");
+            $scope.bar.width(600);
+            $scope.bar.text('100%');
         };
 
 

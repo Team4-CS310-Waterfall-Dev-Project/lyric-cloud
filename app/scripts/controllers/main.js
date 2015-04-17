@@ -13,7 +13,6 @@ angular.module('lyricCloudApp')
         $scope.wordCloudGenerating = false;
         $scope.something = [];
         $scope.bar = $('.bar');
-        $scope.bar.width(0);
         $scope.$watch('something', function(newVal, oldVal) {
             $scope.resetProgressBar();
 
@@ -53,23 +52,25 @@ angular.module('lyricCloudApp')
         };
 
         $scope.startProgressBar = function() {
+            //width is 660
             $scope.bar.width(0);
+            $scope.bar
 
             var progress = setInterval(function() {
 
-                if ($scope.bar.width() == 400) {
+                if ($scope.bar.width() > 660) {
                     clearInterval(progress);
                 } else {
-                    $scope.bar.width($scope.bar.width() + 40);
+                    $scope.bar.width($scope.bar.width() + 66);
                 }
-                $scope.bar.text($scope.bar.width() / 4 + "%");
+                $scope.bar.text($scope.bar.width() / 6.6 + "%");
             }, 800);
 
         };
 
         $scope.resetProgressBar = function() {
-            $scope.bar.width(400);
-            $scope.bar.text($scope.bar.width() / 4 + "%");
+            $scope.bar.width(0);
+            $scope.bar.text('0%');
         };
     })
 
