@@ -67,9 +67,10 @@ angular.module('lyricCloudApp')
         $scope.displaypubList = function(word) {
             $scope.currentpub = [word];
             sharedProperties.setCurrentpub($scope.currentpub);
-            $location.path('/pub-list');
-
-            console.log($scope.currentpub);
+             console.log($scope.currentpub);
+            //$location.path('/pub-list');
+            $scope.newArtist(word);
+           
         };
 
     })
@@ -82,7 +83,7 @@ angular.module('lyricCloudApp')
             var template = " ";
             var i = 0;
             for (i = 0; i < sharedProperties2.getSomeWord().data.length; i++) {
-                template += "<span ng-click=displaypubList(" + "wtf" + ") style=\"font-size: " + sharedProperties2.getSomeWord().data[i].Size + "px;\">" + sharedProperties2.getSomeWord().data[i].Word + "</span> ";
+                template += "<span ng-click=displaypubList(\""+ sharedProperties2.getSomeWord().data[i].Word+"\") style=\"font-size: " + sharedProperties2.getSomeWord().data[i].Size + "px;\">" + sharedProperties2.getSomeWord().data[i].Word + "</span> ";
             }
             //template = "<div ng-repeat item in words> <span ng-click=displaypubList(item.Id) style=\"font-size: item.Size px\">item.Word ,"
             var linkFn = $compile(template);
