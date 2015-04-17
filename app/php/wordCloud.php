@@ -110,8 +110,9 @@ $theCloud = new stdClass();
 
 //TODO
 for($i = 0; $i < 10; $i++){
-$whatever .= " " . $vname->document[$i]->abstract;
-
+    $whatever .= " " . $vname->document[$i]->abstract;
+    $publication = array("Title" => $vname->document[$i]->title, "Authors" => $vname->document[$i]->authors, "Date" => $vname->document[$i]->py, "Journal" => $vname->document[$i]->publisher, "Conference" => $vname->document[$i]->pubtitle);
+    $theCloud->list[] = $publication;
 }
 
 $words = str_word_count($whatever, 1);
