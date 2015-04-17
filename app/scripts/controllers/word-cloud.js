@@ -9,14 +9,84 @@
  */
 angular.module('lyricCloudApp')
     .controller('WordCloudCtrl', function($scope, $http, $sce, $location, sharedProperties, sharedProperties2, $compile) {
-        $scope.artists = sharedProperties.getProperty();
+        $scope.artists = sharedProperties.getCurrentpub().pub;
         $scope.wordCloudGenerating = false;
         $scope.wordClicked = false;
         $scope.bar = $('.bar');
-        $scope.words = new Array(10);
+        $scope.words = [];
 
         //TODO change this to what I get from Hung
-        $scope.papers = [];
+        $scope.papers = [{
+            title: '',
+            authors: '',
+            date: '',
+            journal: '',
+            conference: '',
+            frequency: ''
+        }, {
+            title: '',
+            authors: '',
+            date: '',
+            journal: '',
+            conference: '',
+            frequency: ''
+        }, {
+            title: '',
+            authors: '',
+            date: '',
+            journal: '',
+            conference: '',
+            frequency: ''
+        }, {
+            title: '',
+            authors: '',
+            date: '',
+            journal: '',
+            conference: '',
+            frequency: ''
+        }, {
+            title: '',
+            authors: '',
+            date: '',
+            journal: '',
+            conference: '',
+            frequency: ''
+        }, {
+            title: '',
+            authors: '',
+            date: '',
+            journal: '',
+            conference: '',
+            frequency: ''
+        }, {
+            title: '',
+            authors: '',
+            date: '',
+            journal: '',
+            conference: '',
+            frequency: ''
+        }, {
+            title: '',
+            authors: '',
+            date: '',
+            journal: '',
+            conference: '',
+            frequency: ''
+        }, {
+            title: '',
+            authors: '',
+            date: '',
+            journal: '',
+            conference: '',
+            frequency: ''
+        }, {
+            title: '',
+            authors: '',
+            date: '',
+            journal: '',
+            conference: '',
+            frequency: ''
+        }];
 
         for ($scope.i = 0; $scope.i < sharedProperties2.getSomeWord().data.length; $scope.i++) {
             $scope.words[$scope.words.length] = {
@@ -25,6 +95,18 @@ angular.module('lyricCloudApp')
                 Size: sharedProperties2.getSomeWord().data[$scope.i].Size
             };
         }
+
+        //populate papers table
+        for (var j = 0; j < sharedProperties2.getSomeWord().names.length; j++) {
+            console.log(sharedProperties2.getSomeWord().names[j].Title);
+            $scope.papers[j].title = sharedProperties2.getSomeWord().names[j].Title;
+            $scope.papers[j].authors = sharedProperties2.getSomeWord().names[j].Authors;
+            $scope.papers[j].date = sharedProperties2.getSomeWord().names[j].Date;
+            $scope.papers[j].journal = sharedProperties2.getSomeWord().names[j].Journal;
+            $scope.papers[j].conference = sharedProperties2.getSomeWord().names[j].Conference;
+            $scope.papers[j].frequency = sharedProperties2.getSomeWord().names[j].Frequency;
+        }
+
         $scope.$watch('something', function(newVal, oldVal) {
             if (newVal === oldVal) return;
             $scope.resetProgressBar();
@@ -32,19 +114,6 @@ angular.module('lyricCloudApp')
             sharedProperties2.setSomeWord($scope.something);
             $scope.wordCloudGenerating = false;
             console.log('wordCloudGenerating = false');
-
-            //populate papers table
-            for (var j = 0; j < sharedProperties2.getSomeWord().names.length; j++) {
-                console.log(sharedProperties2.getSomeWord().names[j].Title);
-                $scope.papers[j].title = sharedProperties2.getSomeWord().names[j].Title;
-                $scope.papers[j].authors = sharedProperties2.getSomeWord().names[j].Authors;
-                $scope.papers[j].date = sharedProperties2.getSomeWord().names[j].Date;
-                $scope.papers[j].journal = sharedProperties2.getSomeWord().names[j].Journal;
-                $scope.papers[j].conference = sharedProperties2.getSomeWord().names[j].Conference;
-                $scope.papers[j].frequency = sharedProperties2.getSomeWord().names[j].Frequency;
-            }
-
-
             $location.path('/word-cloud/');
 
         });
@@ -53,7 +122,6 @@ angular.module('lyricCloudApp')
         //called when the user presses submit
         $scope.newArtist = function(artistName) {
             $scope.artists = artistName;
-
             //change boolean to display progress bar
             $scope.wordCloudGenerating = true;
             console.log('wordCloudGenerating = true');
@@ -139,7 +207,7 @@ angular.module('lyricCloudApp')
         };
 
         var currentpub = {
-            pub: 'this pub'
+            pub: sharedProperties.getProperty()
         };
         var someWord = 'testCh';
         return {

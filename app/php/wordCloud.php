@@ -124,7 +124,7 @@ for($i = 0; $i < 10; $i++){
    $theAbstract = (string) $vname->document[$i]->abstract;
    $wFreq = count_select_word($theAbstract, $searchQueryFull);
    
-    $publication = array("Title" => $tit, "Authors" => $aut->authors, "Date" => $date, "Journal" => $journal, "Conference" => $conf, "Frequency" => $wFreq);
+    $publication = array("Title" => $tit, "Authors" => $aut, "Date" => $date, "Journal" => $journal, "Conference" => $conf, "Frequency" => $wFreq);
     $theCloud->names[] = $publication;
 }
 
