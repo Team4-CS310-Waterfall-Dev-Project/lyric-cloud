@@ -13,10 +13,6 @@ angular.module('lyricCloudApp')
         $scope.wordCloudGenerating = false;
         $scope.wordClicked = false;
         $scope.bar = $('.bar');
-        //	$scope.word = sharedProperties2.getSomeWord();
-        //        $scope.JSONvar = sharedProperties2.getSomeWord();
-
-        //working code TODO remove comments
         $scope.words = [];
 
         //TODO change this to what I get from Hung
@@ -63,13 +59,9 @@ angular.module('lyricCloudApp')
             sharedProperties2.setSomeWord($scope.something);
             $scope.wordCloudGenerating = false;
             console.log('wordCloudGenerating = false');
-
-            //TODO update progress bar to 100%
-
             $location.path('/word-cloud/');
 
         });
-        //alert($scope.words[0].Id+ " " + $scope.words[0].Word + " "+$scope.words[0].Size);
 
 
         //called when the user presses submit
@@ -99,8 +91,6 @@ angular.module('lyricCloudApp')
                 });
 
             console.log($scope.artists);
-            //  sharedProperties.setProperty($scope.artists);
-            //    sharedProperties2.setSomeWord($scope.something);
         };
 
 
@@ -140,9 +130,7 @@ angular.module('lyricCloudApp')
 
 .directive("otcDynamic", function($compile, sharedProperties2) {
     return {
-        //template: "<button ng-click='doSomething()'>{{label}}</div"
         link: function(scope, element) {
-            //element.html("<button ng-click='doSomething()'>{{label}}</div>");
             var template = " ";
             var i = 0;
             for (i = 0; i < sharedProperties2.getSomeWord().data.length; i++) {
@@ -156,7 +144,6 @@ angular.module('lyricCloudApp')
     }
 })
     .service('sharedProperties', function() {
-        //TODO change to list of artists, songs
         var property = 'First Artist';
 
         var pubList = {
