@@ -188,7 +188,7 @@ angular.module('lyricCloudApp')
             var template = " ";
             var i = 0;
             for (i = 0; i < sharedProperties2.getSomeWord().data.length; i++) {
-                template += "<span ng-click=displaypubList(\"" + sharedProperties2.getSomeWord().data[i].Word + "\") style=\"font-size: " + sharedProperties2.getSomeWord().data[i].Size + "px; color: " + getRandomColor() + ";\">" + sharedProperties2.getSomeWord().data[i].Word + "</span> ";
+                template += "<div ng-click=displaypubList(\"" + sharedProperties2.getSomeWord().data[i].Word + "\") style=\"font-size: " + sharedProperties2.getSomeWord().data[i].Size + "px; color: " + getRandomColor() + "; float: left\">" + sharedProperties2.getSomeWord().data[i].Word + "</div> ";
             }
             console.log(sharedProperties2.getSomeWord().names.length);
 
