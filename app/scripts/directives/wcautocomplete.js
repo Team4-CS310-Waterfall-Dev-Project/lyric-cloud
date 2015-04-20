@@ -403,8 +403,7 @@ angular.module('lyricCloudApp')
 'Ciuonzo',
 'Salvo Rossi',
 'Dey',
-'Halfond',
-''
+'Halfond'
                     ];
 
                     $('#topic_title').autocomplete({
