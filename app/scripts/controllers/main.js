@@ -8,12 +8,12 @@
  * Controller of the lyricCloudApp
  */
 angular.module('lyricCloudApp')
-    .controller('MainCtrl', function($scope, $http, $location, sharedProperties, sharedProperties2) {
+    .controller('MainCtrl', function ($scope, $http, $location, sharedProperties, sharedProperties2) {
         $scope.artists = "";
         $scope.wordCloudGenerating = false;
         $scope.something = [];
         $scope.bar = $('.bar');
-        $scope.$watch('something', function(newVal, oldVal) {
+        $scope.$watch('something', function (newVal, oldVal) {
             $scope.resetProgressBar();
 
             if (newVal === oldVal) return;
@@ -21,7 +21,7 @@ angular.module('lyricCloudApp')
             sharedProperties2.setSomeWord($scope.something);
         });
         //called when the user presses submit
-        $scope.newArtist = function(artistName) {
+        $scope.newArtist = function (artistName) {
             $scope.artists = artistName;
 
             //change boolean to display progress bar
@@ -42,7 +42,7 @@ angular.module('lyricCloudApp')
             });
 
             config
-                .then(function(response) {
+                .then(function (response) {
                     $scope.something = response.data;
                 });
 
@@ -51,11 +51,11 @@ angular.module('lyricCloudApp')
             sharedProperties2.setSomeWord($scope.something);
         };
 
-        $scope.startProgressBar = function() {
+        $scope.startProgressBar = function () {
             //width is 618
             $scope.bar.width(0);
 
-            var progress = setInterval(function() {
+            var progress = setInterval(function () {
 
                 if ($scope.bar.width() >= 600) {
                     clearInterval(progress);
@@ -67,30 +67,30 @@ angular.module('lyricCloudApp')
 
         };
 
-        $scope.resetProgressBar = function() {
+        $scope.resetProgressBar = function () {
             $scope.bar.width(600);
-            $scope.bar.text('100%');
+            $scope.bar.text('0%');
         };
     })
 
-.service('sharedProperties', function() {
+.service('sharedProperties', function () {
     var property = 'First Artist';
     return {
-        getProperty: function() {
+        getProperty: function () {
             return property;
         },
-        setProperty: function(value) {
+        setProperty: function (value) {
             property = value;
         }
     };
 })
-    .service('sharedProperties2', function() {
+    .service('sharedProperties2', function () {
         var someWord = 'Undefined';
         return {
-            getSomeWord: function() {
+            getSomeWord: function () {
                 return someWord;
             },
-            setSomeWord: function(value) {
+            setSomeWord: function (value) {
                 someWord = value;
             }
         };
