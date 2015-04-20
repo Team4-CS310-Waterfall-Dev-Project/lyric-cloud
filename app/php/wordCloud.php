@@ -95,6 +95,7 @@ function count_select_word($someString, $someWord){
             $offset = $result;
         }
     }
+    return $foundNum;
 }
 
 $ch = curl_init();
@@ -122,7 +123,7 @@ for($i = 0; $i < 10; $i++){
    $journal = (string) $vname->document[$i]->publisher;
    $conf = (string) $vname->document[$i]->pubtitle;
    $theAbstract = (string) $vname->document[$i]->abstract;
-   $wFreq = (string)count_select_word($theAbstract, $searchQueryFull);
+   $wFreq = (int)count_select_word($theAbstract, $searchQueryFull);
    
     $publication = array("Title" => $tit, "Authors" => $aut, "Date" => $date, "Journal" => $journal, "Conference" => $conf, "Frequency" => $wFreq);
     $theCloud->names[] = $publication;
