@@ -3,7 +3,7 @@
     <h1>Research Word Cloud</h1>
 
     {{messageT}}
-    <div otc-dynamic ng-hide="wordCloudGenerating"> </div>
+    <div otc-dynamic id="wordCloudDiv"ng-hide="wordCloudGenerating" style="max-height:600px"> </div>
 
     <div class="progress progress-striped active" role="progressbar" ng-show="wordCloudGenerating">
         <div class="bar" style="width: 0%; background-color:green;"></div>

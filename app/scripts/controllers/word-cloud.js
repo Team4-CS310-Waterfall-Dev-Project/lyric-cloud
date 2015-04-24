@@ -8,7 +8,7 @@
  * Controller of the lyricCloudApp
  */
 angular.module('lyricCloudApp')
-    .controller('WordCloudCtrl', function($scope, $http, $sce, $location, sharedProperties, sharedProperties2, $compile) {
+    .controller('WordCloudCtrl', function ($scope, $http, $sce, $location, sharedProperties, sharedProperties2, $compile) {
         $scope.artists = sharedProperties.getCurrentpub().pub;
         $scope.wordCloudGenerating = false;
         $scope.wordClicked = false;
@@ -107,7 +107,7 @@ angular.module('lyricCloudApp')
             $scope.papers[j].frequency = sharedProperties2.getSomeWord().names[j].Frequency;
         }
 
-        $scope.$watch('something', function(newVal, oldVal) {
+        $scope.$watch('something', function (newVal, oldVal) {
             if (newVal === oldVal) return;
             $scope.resetProgressBar();
             console.log('setting new')
@@ -120,7 +120,7 @@ angular.module('lyricCloudApp')
 
 
         //called when the user presses submit
-        $scope.newArtist = function(artistName) {
+        $scope.newArtist = function (artistName) {
             $scope.artists = artistName;
             //change boolean to display progress bar
             $scope.wordCloudGenerating = true;
@@ -140,7 +140,7 @@ angular.module('lyricCloudApp')
             });
 
             config
-                .then(function(response) {
+                .then(function (response) {
                     $scope.something = response.data;
                 });
 
@@ -148,11 +148,11 @@ angular.module('lyricCloudApp')
         };
 
 
-        $scope.startProgressBar = function() {
+        $scope.startProgressBar = function () {
             //width is 618
             $scope.bar.width(0);
 
-            var progress = setInterval(function() {
+            var progress = setInterval(function () {
 
                 if ($scope.bar.width() >= 600) {
                     clearInterval(progress);
@@ -164,14 +164,14 @@ angular.module('lyricCloudApp')
 
         };
 
-        $scope.resetProgressBar = function() {
+        $scope.resetProgressBar = function () {
             $scope.bar.width(600);
             $scope.bar.text('100%');
         };
 
 
         //called when a word is selected from the word cloud
-        $scope.displaypubList = function(word) {
+        $scope.displaypubList = function (word) {
             $scope.currentpub = [word];
             sharedProperties.setCurrentpub($scope.currentpub);
             console.log($scope.currentpub);
@@ -182,13 +182,13 @@ angular.module('lyricCloudApp')
 
     })
 
-.directive("otcDynamic", function($compile, sharedProperties2) {
+.directive("otcDynamic", function ($compile, sharedProperties2) {
     return {
-        link: function(scope, element) {
+        link: function (scope, element) {
             var template = " ";
             var i = 0;
             for (i = 0; i < sharedProperties2.getSomeWord().data.length; i++) {
-                template += "<span ng-click=displaypubList(\"" + sharedProperties2.getSomeWord().data[i].Word + "\") style=\"font-size: " + sharedProperties2.getSomeWord().data[i].Size + "px;\">" + sharedProperties2.getSomeWord().data[i].Word + "</span> ";
+                template += "<span ng-click=displaypubList(\"" + sharedProperties2.getSomeWord().data[i].Word + "\") style=\"font-size: " + sharedProperties2.getSomeWord().data[i].Size + "px; color: " + getRandomColor() + ";\">" + sharedProperties2.getSomeWord().data[i].Word + "</span> ";
             }
             console.log(sharedProperties2.getSomeWord().names.length);
 
@@ -198,8 +198,17 @@ angular.module('lyricCloudApp')
             element.append(content);
         }
     }
+
+    function getRandomColor() {
+        var letters = '0123456789ABCDEF'.split('');
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
 })
-    .service('sharedProperties', function() {
+    .service('sharedProperties', function () {
         var property = 'First Artist';
 
         var pubList = {
@@ -211,22 +220,22 @@ angular.module('lyricCloudApp')
         };
         var someWord = 'testCh';
         return {
-            getSomeWord: function() {
+            getSomeWord: function () {
                 return someWord;
             },
-            setSomeWord: function(value) {
+            setSomeWord: function (value) {
                 someWord = value;
             },
-            getSongList: function() {
+            getSongList: function () {
                 return songList;
             },
-            setpubList: function(value) {
+            setpubList: function (value) {
                 pubList = value;
             },
-            getCurrentpub: function() {
+            getCurrentpub: function () {
                 return currentpub;
             },
-            setCurrentpub: function(value) {
+            setCurrentpub: function (value) {
                 currentpub = value;
             }
         };
