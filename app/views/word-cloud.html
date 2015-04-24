@@ -39,7 +39,7 @@
           <td>Conference</td>
           <td>Frequency</td>
         </tr>
-          <tr ng-repeat="paper in papers | orderBy: 'frequency'">
+          <tr ng-repeat="paper in papers | orderBy: 'frequency': true">
             <td>{{ paper.title }}</td>
             <td>{{ paper.authors }}</td>
             <td>{{ paper.date }}</td>
