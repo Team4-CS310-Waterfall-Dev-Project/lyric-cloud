@@ -3,14 +3,14 @@
     <h1>Research Word Cloud</h1>
 
     {{messageT}}
-    <div otc-dynamic id="wordCloudDiv"ng-hide="wordCloudGenerating" style="max-height:600px; background-color:white; border-radius:30px; overflow:hidden"> </div>
+    <div otc-dynamic class="row" id="wordCloudDiv"ng-hide="wordCloudGenerating" ng-show="!wordClicked"style="max-height:600px; background-color:white; border-radius:30px; overflow:hidden"> </div>
 
     <div class="progress progress-striped active" role="progressbar" ng-show="wordCloudGenerating">
         <div class="bar" style="width: 0%; background-color:green;"></div>
     </div>
     
 
-    <div id="wcAutocomplete">
+    <div class="row" id="wcAutocomplete" style="margin-top: 30px;">
       <input type="text" id="topic_title" value={{artistName}} ng-model="artistName" ng-init="artistName='Enter a researcher or keyword'" ng-click="artistName=''">
         <div wc-autocomplete></div>
         
@@ -26,7 +26,7 @@
       
     </div>
     <!-- Title, Authors, Date, journal, conference name in table ng-repeat-->
-    <div class="row" ng-show"wordClicked">
+    <div class="row" ng-show="wordClicked">
 
       <h3>Papers by/about this researcher or topic</h3>
 

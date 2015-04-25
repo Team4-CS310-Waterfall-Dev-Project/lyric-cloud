@@ -12,6 +12,7 @@ table tr:nth-child(even) {
   background-color: #ffffff;
 }
 
+
 /***********************************/
 
 .browsehappy {
@@ -55,6 +56,10 @@ body {
 .jumbotron {
   text-align: center;
   background-color: #666666;
+}
+
+.jumbotron .ng-scope {
+    padding: 0px;
 }
 
 /* for the submit button */
