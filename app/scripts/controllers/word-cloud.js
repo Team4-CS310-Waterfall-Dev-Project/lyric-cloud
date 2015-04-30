@@ -180,6 +180,10 @@ angular.module('lyricCloudApp')
             $scope.wordClicked = true; //shows the table at the bottom
         };
 
+        $scope.backButtonClicked = function () {
+            $scope.wordClicked = false;
+        }
+
     })
 
 .directive("otcDynamic", function ($compile, sharedProperties2) {
