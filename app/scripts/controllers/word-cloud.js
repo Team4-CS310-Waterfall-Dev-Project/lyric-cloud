@@ -11,7 +11,7 @@ angular.module('lyricCloudApp')
     .controller('WordCloudCtrl', function ($scope, $http, $sce, $location, sharedProperties, sharedProperties2, $compile) {
         $scope.artists = sharedProperties.getCurrentpub().pub;
         $scope.wordCloudGenerating = false;
-        $scope.wordClicked = false;
+        $scope.wordClicked = true;
         $scope.bar = $('.bar');
         $scope.words = [];
 
@@ -103,7 +103,7 @@ angular.module('lyricCloudApp')
             $scope.papers[j].authors = sharedProperties2.getSomeWord().names[j].Authors;
             $scope.papers[j].date = sharedProperties2.getSomeWord().names[j].Date;
             $scope.papers[j].journal = sharedProperties2.getSomeWord().names[j].Journal;
-            $scope.papers[j].conference = sharedProperties2.getSomeWord().names[j].Conference;
+            $scope.papers[j].conference = sharedProperties2.getSomeWord().names[j].Conference ;
             $scope.papers[j].frequency = sharedProperties2.getSomeWord().names[j].Frequency;
         }
 
@@ -206,6 +206,28 @@ angular.module('lyricCloudApp')
             color += letters[Math.floor(Math.random() * 16)];
         }
         return color;
+    }
+})
+    .directive("tablePopulate", function ($compile, sharedProperties2) {
+    return {
+        link: function (scope, element) {
+            var template = "";
+            var i = 0;
+             for (i = 0; i < scope.papers.length; i++) {
+                template += "<td>"+ papers[i].title + 
+                "</td> <td>" + papers[i].authors+
+                "</td> <td>" + papers[i].date+
+                "</td> <td>" + papers[i].journal+
+                "</td> <td>" + papers[i].conference+
+                "</td> <td>" + papers[i].frequency+ 
+                "</td>";
+            }
+            alert(papers[0].journal);
+            //template += "</table>";
+            var linkFn = $compile(template);
+            var content = linkFn(scope);
+  //          element.append(content);
+        }
     }
 })
     .service('sharedProperties', function () {

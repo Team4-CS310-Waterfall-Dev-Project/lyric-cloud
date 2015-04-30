@@ -121,7 +121,7 @@ for($i = 0; $i < 10; $i++){
    $aut = (string) $vname->document[$i]->authors;
    $date = (string) $vname->document[$i]->py;
    $journal = (string) $vname->document[$i]->publisher;
-   $conf = (string) $vname->document[$i]->pubtitle;
+   $conf = (string) $vname->document[$i]->pubtitle ;
    $theAbstract = (string) $vname->document[$i]->abstract;
    $wFreq = (int)count_select_word($theAbstract, $searchQueryFull);
    

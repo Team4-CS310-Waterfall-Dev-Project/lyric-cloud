@@ -16,10 +16,11 @@
         
     <div class="row">
         <div class="col-md-3"></div>
-        <div class="col-md-6">
+        <div class="col-md-3">
           <div id="buttons">
             <button type="button" class="btn btn-lg " ng-click="newArtist(artistName)"> Submit </button>
           </div>
+          
         </div>
         <div class="col-md-3"></div>
       </div>
@@ -30,7 +31,7 @@
 
       <h3>Papers by/about this researcher or topic</h3>
 
-        <table>
+        <table >
         <tr>
           <td>Title</td>
           <td>Authors</td>
@@ -44,12 +45,11 @@
             <td>{{ paper.authors }}</td>
             <td>{{ paper.date }}</td>
             <td>{{ paper.journal }}</td>
-            <td>{{ paper.conference }}</td>
-            <td>{{ paper.frequency }}
+            <td> <a ng-href = "http://ieeexplore.ieee.org/search/searchresult.jsp?action=search&sortType=&rowsPerPage=&searchField=Search_All&matchBoolean=true&queryText=%28%22Publication%20Title%22:{{ paper.conference }}%29">{{ paper.conference }}</a></td>
+            <td>{{ paper.frequency }}</td>
+          
           </tr>
-
         </table>
-      
     </div>
 
 
