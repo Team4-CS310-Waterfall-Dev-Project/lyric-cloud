@@ -10,9 +10,8 @@
     </div>
     
 
-    <div class="row" id="wcAutocomplete" style="margin-top:60px;" ng-hide="wordClicked">
-      <input type="text" style="margin-top:60px;" id="topic_title" value={{artistName}} ng-model="artistName" ng-init="artistName='Enter a researcher or keyword'" ng-click="artistName=''" >
-      <p>Please wait while your word cloud is being generated</p>
+    <div class="row" id="wcAutocomplete" style="margin-top:30px;" ng-hide="wordClicked">
+      <input type="text" id="topic_title" value={{artistName}} ng-model="artistName" ng-init="artistName='Enter a researcher or keyword'" ng-click="artistName=''" >
     <div wc-autocomplete></div>
         
     <div class="row" ng-hide="wordClicked">
@@ -29,11 +28,10 @@
     <!-- Title, Authors, Date, journal, conference name in table ng-repeat-->
     <div class="row" ng-show="wordClicked && !wordCloudGenerating">
 
-      <h3>Papers by/about this researcher or topic</h3>
-
       <button type="button" class="backBTN" ng-click="backButtonClicked()"> Back to Word Cloud</button>
 
         <table>
+        <h2>IEEE Paper Results</h2>
         <tr>
           <td>Title</td>
           <td>Authors</td>
