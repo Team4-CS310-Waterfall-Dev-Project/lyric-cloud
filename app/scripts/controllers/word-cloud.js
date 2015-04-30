@@ -11,7 +11,7 @@ angular.module('lyricCloudApp')
     .controller('WordCloudCtrl', function ($scope, $http, $sce, $location, sharedProperties, sharedProperties2, $compile) {
         $scope.artists = sharedProperties.getCurrentpub().pub;
         $scope.wordCloudGenerating = false;
-        $scope.wordClicked = false;
+        $scope.wordClicked = true;
         $scope.bar = $('.bar');
         $scope.words = [];
 
@@ -179,6 +179,10 @@ angular.module('lyricCloudApp')
             $scope.newArtist(word);
             $scope.wordClicked = true; //shows the table at the bottom
         };
+
+        $scope.backButtonClicked = function () {
+            $scope.wordClicked = false;
+        }
 
     })
 

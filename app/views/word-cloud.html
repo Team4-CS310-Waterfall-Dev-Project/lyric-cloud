@@ -3,18 +3,19 @@
     <h1>Research Word Cloud</h1>
 
     {{messageT}}
-    <div otc-dynamic class="row" id="wordCloudDiv"ng-hide="wordCloudGenerating" ng-show="!wordClicked"style="max-height:600px; background-color:white; border-radius:30px; overflow:hidden"> </div>
+    <div otc-dynamic class="row" id="wordCloudDiv"ng-hide="wordCloudGenerating || wordClicked" style="max-height:600px; background-color:white; border-radius:30px; overflow:hidden"> </div>
 
     <div class="progress progress-striped active" role="progressbar" ng-show="wordCloudGenerating">
         <div class="bar" style="width: 0%; background-color:green;"></div>
     </div>
     
 
-    <div class="row" id="wcAutocomplete" style="margin-top: 30px;">
-      <input type="text" id="topic_title" value={{artistName}} ng-model="artistName" ng-init="artistName='Enter a researcher or keyword'" ng-click="artistName=''">
-        <div wc-autocomplete></div>
+    <div class="row" id="wcAutocomplete" style="margin-top:60px;" ng-hide="wordClicked">
+      <input type="text" style="margin-top:60px;" id="topic_title" value={{artistName}} ng-model="artistName" ng-init="artistName='Enter a researcher or keyword'" ng-click="artistName=''" >
+      <p>Please wait while your word cloud is being generated</p>
+    <div wc-autocomplete></div>
         
-    <div class="row">
+    <div class="row" ng-hide="wordClicked">
         <div class="col-md-3"></div>
         <div class="col-md-6">
           <div id="buttons">
@@ -26,9 +27,11 @@
       
     </div>
     <!-- Title, Authors, Date, journal, conference name in table ng-repeat-->
-    <div class="row" ng-show="wordClicked">
+    <div class="row" ng-show="wordClicked && !wordCloudGenerating">
 
       <h3>Papers by/about this researcher or topic</h3>
+
+      <button type="button" class="backBTN" ng-click="backButtonClicked()"> Back to Word Cloud</button>
 
         <table>
         <tr>
@@ -45,10 +48,12 @@
             <td>{{ paper.date }}</td>
             <td>{{ paper.journal }}</td>
             <td>{{ paper.conference }}</td>
-            <td>{{ paper.frequency }}
+            <td>{{ paper.frequency }}</td>
           </tr>
 
         </table>
+
+        
       
     </div>
 
